@@ -3,7 +3,6 @@ $(function() {
 	//Настройка индикаторов
 	for(var i = 0; i<=3; i++){
 		var radialObj = radialIndicator('.indicator' + i, {
-		    
 		    barWidth : 10,
 		    barColor : '#87CEEB',
 		    barBgColor: "#fff",
@@ -16,6 +15,5 @@ $(function() {
 		    fontColor: "#fff"
 		}); 
 		//Using Instance
-		 
 		}
 });

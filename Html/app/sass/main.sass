@@ -44,7 +44,11 @@ body
 	line-height: 1.65
 	font-family: $default-font
 	overflow-x: hidden
-
+footer
+	background-color: #282828
+	-webkit-box-shadow: 0px -1px 5px 0px rgba(0,0,0,0.75)
+  -moz-box-shadow: 0px -1px 5px 0px rgba(0,0,0,0.75)
+  box-shadow: 0px -1px 5px 0px rgba(0,0,0,0.75)
 strong, b, 
 	font-family: "Exo20-example", sans-serif
 	font-weight: bold
@@ -149,22 +153,37 @@ button
 	background: none
 	font-weight: bold
 	border: 1px solid
+	i
+		color:#fff 
+		padding-top: 0px
+		padding-left: 0px
+	&:hover
+		.fab
+			color: $accent
+
 .head-menu-socVkenterBtn
 	padding-left: 10px
 	padding-right: 10px
+	color: #fff  !important
+	padding-top: 0px
+	margin-left: 0px
+
 .head-menu-enterBtn
-	color: $grayBorderColor  !important
+	color: #fff  !important
+	padding-top: 0px
 	&:hover
 		color: #c97018!important
 .transparent-btn
 	border: solid 1px
 	background: none
-	font-weight: bold
+	font-weight: none
+	font-family: "Exo20-example", sans-serif
 	padding-top: 2px
+	color: white
 	border-radius: $main-border-radius   
-	border-color: $grayBorderColor
+	border-color: #E27100
 	&:hover
-		color: #c97018
+		color: #E27100
 		border-color: #c97018
 .nav-menu-header
 	width: 420px
@@ -217,7 +236,7 @@ button
 	height: 100%
 	padding-left: 20px
 	padding-top: 10px
-	padding-right: 40px
+	padding-right: 5px
 	.row
 		height: 100%
 	h5
@@ -235,20 +254,276 @@ button
 	transition: height 1s ease
 	&:hover
 		height: 170px
+	.transparent-btn
+		i
+			position: relative
+			top: 2px
+			margin-left: 5px
+			color: #E27100
+ 
 .icon-category
 	width: 35px
+	fill: red
 	height: 35px
 	display: block
 	float: left
+	stroke: red
 	margin-right: 10px
+	border: solid 1px #E27100
+	border-radius: 3px
+	padding: 4px
 	&:hover
-		width: 36px
-		height: 36px
-		background-size: 36px
 		cursor: pointer
+	div
+		width: 24px
+		height: 24px
+.clapp-icon
+	background-image: url(../img/applause_icon.png)
+.icon-bmx
+	background-image: url(../img/icon/BMX.svg)
+.icon-mtb
+	background-image: url(../img/icon/MTB.svg)
+.icon-roll
+	background-image: url(../img/icon/Roller.svg)
+.icon-skate
+	background-image: url(../img/icon/Skate.svg)
+.icon-snow
+	background-image: url(../img/icon/Snow.svg)
+.icon-users
+	background-image: url(../img/icon/users-group-icon.png)
+.icon-surf
+	background-image: url(../img/icon/Surf.svg)
 .card-footer-textlayer
 	margin-top: 10px
 	margin-bottom: 10px
 	.card-footer-textlayer-namecat
 		margin-top: 9px
+.mini-icon-container
+	float: right
+	list-style: none
+	margin-bottom: 0px
+	padding-bottom: 0px
+	padding-left: 10px
+	li
+		display: inline
+		margin-left: 10px
+		span
+			margin-left: 1px
+			color: white
+			font-size: 12px
+			cursor: pointer
+
+		&:hover
+			&.mini-icon-container
+				i 
+					color: $accent
+					cursor: pointer
+		i
+			color: #8E9195
+			font-size: 12px
+
+			&:hover
+				color: #E27100
+				cursor: pointer
+.main-layout-button-block
+	background-color: transparent
+	border-right: 0px solid 
+	border-left: 0px solid
+	border-top: 1px solid $accent
+	border-bottom: 1px solid $accent
+	border-radius: 1px
+	margin-top: 48px
+	margin-bottom: 48px
+	font-weight: bold
+	height: 60px
+	width: 165px
+	text-transform: uppercase
+	&:hover
+		background-color: $accent
+.icon 
+	display: inline-block
+	position: relative
+	top: 0;
+	width: 2em;
+	height: 2em;
+	margin: 0 .3em 0 0;
+	transition: .5s;
+	fill: red;
+	filter: url(#shadow);
+	stroke: rgba(255,255,255,0);
+	stroke-width: 5;
+	vertical-align: middle;
+	&:hover
+		fill: rgba(255,255,255,0);
+		stroke: red;
+		stroke-width: 5;
+	LI A
+		color: blue
+		&:hover
+			color: green
+path 
+	transform: translate(15px) scale(.8);
+.news-container-block
+	margin-top: 30px
+.new-button-card-bottom-help
+	color: #000
+.news-card-tpl
+	margin-top: 35px
+	margin-bottom: 35px
+	.card
+		border:solid 1px #E8E8E8 !important
+		border-radius: 1px
+		img
+			max-width: 100%
+.card-body-help-news
+	border-bottom:solid 1px #E8E8E8 !important
+.card-body-help-news
+	i,span
+		color: #777777
+		font-size: 12px
+.card-body-help-news-calendar-col
+	i
+		margin: 14px
+		margin-right: 4px
+.card-body-help-news-mini-icon-container
+	padding-bottom: 8px
+	padding-right: 8px
+	li
+		span 
+			color: #777777
+.card-body-help-news-body
+	padding: 15px
+.card-body-news-block-btn
+	color: $accent
+	float: right
+	margin-right: 10px
+	&:hover
+		color:#fff
+		background-color: $accent
+.community-main-block-wrapper
+	padding-left: 0px
+	padding-right: 0px
+	position: relative
+	&:before
+		content: ''
+		width: 100%
+		height: 870px
+		z-index: 1
+		position: absolute
+		opacity: 0.7
+		background-color: #202020
+	.card
+		padding: 0px
+.community-bloc-card-container
+	margin-top: 50px
+.community-main-block-wrapper-card
+	max-width: 480px
+	z-index: 2;
+.community-main-block-wrapper-h3-help
+	color: #fff
+	padding-top: 50px
+	z-index: 2;
+	position: relative
+.community-btn-block-help
+	z-index: 2
+	margin-bottom: 35px
+	position: relative
+.btn-card-set
+	color: $accent
+	padding: 7px!important
+	font-size: 12px
+	&:hover
+		color: #fff
+		background-color: $accent
+	i
+		padding-left: 7px
+		position: relative
+		top: 1px
+		font-size: 10px
+.board-card-help
+	border:solid 1px #E8E8E8 !important
+	border-radius: 2px 
+	padding-top: 20px
+	padding-left: 10px
+	padding-right: 10px
+	padding-bottom: 20px
+	margin-top: 15px
+.infodiv-border-help
+	border-bottom:solid 1px #E8E8E8 !important
+	padding-bottom: 10px
+	margin-bottom: 10px
+.user-post-container-infodiv
+	img
+		float: left
+		cursor: pointer
+	ul
+		margin-top: 8px
+	ul li
+		list-style: none
+		padding-left: 20px
+		line-height: 1.1
+		a
+			font-size: 12px
+			color: $text-color
+			&:hover
+				color: $accent !important
+.user-post-container-li-nickname-help
+	a
+		color: $accent-text !important
+
+.user-post-container-infodiv-date
+	padding-top: 8px
+	i,span
+	font-size: 12px
+	span
+		padding-left: 6px
+.accent-text
+	color: $accent-text 
+.card-title-board-item-price
+	margin-top: 10px
+	span
+		padding-left: 5px
+.card-title-board-icon-container
+	position: relative
+	top: -3px
+	li
+		span
+			color: #8e9195
+.container-padding-clearfix
+	padding-left: 0px
+	padding-right: 0px
+.board-container-block
+	z-index: 2
+	position: relative
+.board-container-block-h3-help
+	margin: 40px
+.footer-wrapper-help
+	div
+		ul
+			li
+				h5
+					color:#9c9c9c
+				
+				p
+					color: #787878
+					cursor: pointer
+
+					&:hover
+						color: #fff
+.footer-copyright
+	h5
+		color:#9c9c9c
+		text-align: center
+.close-modal-btn
+	position: relative
+  top: -29px
+  left: 37px
+  opacity: 1
+	span
+		background-color: #E27100
+		color: #fff
+		width: 40px
+		height: 40px
+		display: block
+		font-size: 42px
 @import "media" // Всегда в конце
