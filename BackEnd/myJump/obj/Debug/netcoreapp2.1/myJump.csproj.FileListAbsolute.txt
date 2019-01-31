@@ -1,0 +1,14 @@
+E:\myJump\myJump\myJump\bin\Debug\netcoreapp2.1\myJump.deps.json
+E:\myJump\myJump\myJump\bin\Debug\netcoreapp2.1\myJump.runtimeconfig.json
+E:\myJump\myJump\myJump\bin\Debug\netcoreapp2.1\myJump.runtimeconfig.dev.json
+E:\myJump\myJump\myJump\bin\Debug\netcoreapp2.1\myJump.dll
+E:\myJump\myJump\myJump\obj\Debug\netcoreapp2.1\myJump.csprojAssemblyReference.cache
+E:\myJump\myJump\myJump\obj\Debug\netcoreapp2.1\myJump.csproj.CoreCompileInputs.cache
+E:\myJump\myJump\myJump\obj\Debug\netcoreapp2.1\myJump.RazorAssemblyInfo.cache
+E:\myJump\myJump\myJump\obj\Debug\netcoreapp2.1\myJump.RazorAssemblyInfo.cs
+E:\myJump\myJump\myJump\obj\Debug\netcoreapp2.1\myJump.AssemblyInfoInputs.cache
+E:\myJump\myJump\myJump\obj\Debug\netcoreapp2.1\myJump.AssemblyInfo.cs
+E:\myJump\myJump\myJump\obj\Debug\netcoreapp2.1\myJump.RazorTargetAssemblyInfo.cache
+E:\myJump\myJump\myJump\bin\Debug\netcoreapp2.1\myJump.pdb
+E:\myJump\myJump\myJump\obj\Debug\netcoreapp2.1\myJump.dll
+E:\myJump\myJump\myJump\obj\Debug\netcoreapp2.1\myJump.pdb
