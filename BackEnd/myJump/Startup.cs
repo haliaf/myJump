@@ -38,7 +38,16 @@ namespace myJump
         {
             string connection = Configuration.GetConnectionString("DefaultConnection");
             services.AddDbContext<Context>(options => options.UseSqlServer(connection));
-            services.AddCors();
+            services.AddCors(options =>
+            {
+                options.AddPolicy("AllowAllOrigins", builder =>
+                {
+                    builder.AllowAnyOrigin();
+                    builder.AllowAnyHeader();
+                    builder.AllowAnyMethod();
+                    builder.AllowCredentials();                    
+                });
+            });
             services.AddMvc();          
             services.AddSingleton<IJwtFactory, JwtFactory>();
             var jwtAppSettingOptions = Configuration.GetSection(nameof(JwtIssuerOptions));
@@ -46,13 +55,13 @@ namespace myJump
 
             // Configure JwtIssuerOptions
             services.Configure<JwtIssuerOptions>(options =>
-            {
+            {                
                 options.Issuer = jwtAppSettingOptions[nameof(JwtIssuerOptions.Issuer)];
                 options.Audience = jwtAppSettingOptions[nameof(JwtIssuerOptions.Audience)];
                 options.SigningCredentials = new SigningCredentials(_signingKey, SecurityAlgorithms.HmacSha256);
             });
             services.AddAuthorization(options =>
-            {
+            {                
                 options.AddPolicy("ApiUser", policy => policy.RequireClaim(Constants.Strings.JwtClaimIdentifiers.Rol, Constants.Strings.JwtClaims.ApiAccess));
                 options.DefaultPolicy = new AuthorizationPolicyBuilder(JwtBearerDefaults.AuthenticationScheme)
                     .RequireAuthenticatedUser()
@@ -83,7 +92,7 @@ namespace myJump
 
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
-            
+            app.UseCors("AllowAllOrigins");
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
@@ -115,12 +124,7 @@ namespace myJump
             });
 
     */
-            app.UseCors(builder =>
-             builder.AllowAnyOrigin()
-                    .AllowAnyMethod()
-                    .AllowAnyHeader()
-                    .AllowCredentials()
-            );
+    
             app.UseAuthentication();
             app.UseMvc();
 

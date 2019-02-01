@@ -10,7 +10,8 @@ using myJump.Model;
 namespace myJump.Controller
 {
     [Route("api/[controller]")]
-    [Authorize(Policy = "ApiUser")]//Разделение по ролям
+   // [Authorize(Policy = "ApiUser")]//Разделение по ролям
+    [AllowAnonymous]
     [ApiController]
     public class ProductController : ControllerBase
     {

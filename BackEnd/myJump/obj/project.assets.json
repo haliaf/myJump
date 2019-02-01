@@ -12482,11 +12482,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "E:\\myJump\\myJump\\myJump\\myJump.csproj",
+      "projectUniqueName": "E:\\gitHub\\myJump\\BackEnd\\myJump\\myJump.csproj",
       "projectName": "myJump",
-      "projectPath": "E:\\myJump\\myJump\\myJump\\myJump.csproj",
+      "projectPath": "E:\\gitHub\\myJump\\BackEnd\\myJump\\myJump.csproj",
       "packagesPath": "C:\\Users\\root\\.nuget\\packages\\",
-      "outputPath": "E:\\myJump\\myJump\\myJump\\obj\\",
+      "outputPath": "E:\\gitHub\\myJump\\BackEnd\\myJump\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
