@@ -153,5 +153,8 @@
       }
     }
   },
-  "defaultProject": "mj"
+  "defaultProject": "mj",
+  "cli": {
+    "defaultCollection": "@ngrx/schematics"
+  }
 }
