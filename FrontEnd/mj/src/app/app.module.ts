@@ -12,7 +12,13 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from '../environments/environment';
 import { EffectsModule } from '@ngrx/effects';
 import { StoreMainModule } from './infrastruct/store/store-root.module';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
+import { JwtInterceptor } from './infrastruct/interceptors/JwtInterceptor';
 
+export function tokenGetter() {
+  return localStorage.getItem('auth_token');
+}
+//AIzaSyDXKQwnYtbILKa-SAK4IZypJivKWTBKw38 googleMapsKey
 @NgModule({
   declarations: [
     AppComponent
@@ -25,11 +31,30 @@ import { StoreMainModule } from './infrastruct/store/store-root.module';
     FooterModule,
     LoginFormModule,
     AppRoutingModule,
+
     StoreModule.forRoot(StoreMainModule.model),
     !environment.production ? StoreDevtoolsModule.instrument() : [],
     EffectsModule.forRoot([ SecurityUserEffects])
   ],
-  providers: [AuthService, ScreenService, AppInfoService],
+  providers: [AuthService, ScreenService, AppInfoService,
+    {
+      provide: HTTP_INTERCEPTORS,
+      // Этим interceptor`ом будем добавлять auth header
+      useClass: JwtInterceptor,
+      multi: true
+    }/*
+    {
+         provide: HTTP_INTERCEPTORS,
+         useClass: ErrorRequestInterceptor,
+         multi: true
+      },
+    {
+      provide: HTTP_INTERCEPTORS,
+      // этим будем соответственно рефрешить
+      useClass: RefreshTokenInterceptor,
+      multi: true
+    }*/],
+  exports: [HttpClientModule],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
