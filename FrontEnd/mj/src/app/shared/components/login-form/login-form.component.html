@@ -1,3 +1,6 @@
+<dx-scroll-view height="100%" class="full-height-scrollable">
+  <div class="dx-card content">
+
 <dx-validation-group>
     <div class="login-header">
         <div class="title">{{appInfo.title}}</div>
@@ -27,6 +30,9 @@
         <a routerLink="/recovery">Forgot password ?</a>
     </div>
     <div class="dx-field">
-        <dx-button type="normal" text="Create an account" width="100%"></dx-button>
+        <dx-button type="normal" text="Зарегестрироваться" width="100%" (onClick)="onRegisterClick()"></dx-button>
     </div>
 </dx-validation-group>
+
+</div>
+</dx-scroll-view>

@@ -20,6 +20,7 @@ export class AppComponent {
 
   ngOnInit() {
       this._store.dispatch(new SecurityUserLoadAction());
+
    }
   isAutorized() {
     return this.authService.isLoggedIn;

@@ -1,0 +1,81 @@
+#nubexDiv video{
+  height: 100vh;
+  z-index: 0;
+}
+
+#nubexDiv {
+  position: absolute;
+  width: 100%;
+  height: 100vh;
+  z-index: 0;
+}
+.vk-dx-button{
+  background-color: #4c75a3;
+}
+.fb-dx-button{
+  background-color: #3b5999;
+
+}
+.blockquote{
+  width:100%;
+  padding-right: 55px;
+}
+.blockquote-footer{
+  color:#fff;
+}
+.SourceTitle{
+  color:rgb(226, 226, 226)
+}
+#nubexDiv:after {
+  content: "";
+  background-color: #363640;
+  display: block;
+  height: 100%;
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  opacity: 0.6;
+  width: 100%;
+}
+.example-card{
+  border-radius: 0px;
+  height: 100%;
+}
+.register-content-block{
+  margin:0px!important;
+}
+.content-block{
+  height: 100vh;
+}
+.heightMax{
+  height: 100vh;
+}
+.social-wrap{
+  margin-top: 55px;
+}
+.social-wrap-btn{
+  margin-bottom: 20px;
+}
+.close-wrapper-register{
+  position: absolute;
+  right: 20px;
+  top: 20px;
+  z-index: 999;
+}
+.padding5{
+  padding: 5px;
+}
+.padma0{
+  padding: 0px;
+  margin: 0px;
+}
+.registerBtn{
+  margin-top: 10px;
+}
+@media (max-width: 755.98px) {
+  #form{
+    max-width: 300px;
+    margin: 0 auto;
+    margin-top: 60px;
+  }
+ }

@@ -1,6 +1,7 @@
+import { navigation } from './../../../app-navigation';
 import { Component, NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { RouterModule } from '@angular/router';
+import { RouterModule, Router } from '@angular/router';
 
 import { AuthService, AppInfoService } from '../../services';
 import { DxButtonModule } from 'devextreme-angular/ui/button';
@@ -8,6 +9,8 @@ import { DxCheckBoxModule } from 'devextreme-angular/ui/check-box';
 import { DxTextBoxModule } from 'devextreme-angular/ui/text-box';
 import { DxValidatorModule } from 'devextreme-angular/ui/validator';
 import { DxValidationGroupModule } from 'devextreme-angular/ui/validation-group';
+import { DxScrollViewModule } from 'devextreme-angular';
+
 
 @Component({
   selector: 'app-login-form',
@@ -18,8 +21,10 @@ export class LoginFormComponent {
   login = '';
   password = '';
 
-  constructor(private authService: AuthService, public appInfo: AppInfoService) { }
-
+  constructor(private authService: AuthService, public appInfo: AppInfoService, private router: Router) { }
+  onRegisterClick(){
+    this.router.navigate(['signup']);
+  }
   onLoginClick(args) {
     if (!args.validationGroup.validate().isValid) {
       return;
@@ -37,8 +42,10 @@ export class LoginFormComponent {
     DxButtonModule,
     DxCheckBoxModule,
     DxTextBoxModule,
+    DxScrollViewModule,
     DxValidatorModule,
-    DxValidationGroupModule
+    DxValidationGroupModule,
+
   ],
   declarations: [ LoginFormComponent ],
   exports: [ LoginFormComponent ]

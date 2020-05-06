@@ -12,6 +12,12 @@ export class JwtInterceptor implements HttpInterceptor {
     intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
         // add authorization header with jwt token if available
         const currentUserToken = this.authService.currentUserTokenValue;
+        if (!currentUserToken){
+          return;
+        }
+        if (this.isNeedRefreshToken()){
+          this.authService.refreshToken();
+        }
         if (currentUserToken) {
             request = request.clone({
                 setHeaders: {
@@ -21,5 +27,9 @@ export class JwtInterceptor implements HttpInterceptor {
         }
 
         return next.handle(request);
+    }
+   isNeedRefreshToken(): boolean {
+      const expires  =  this.authService.isExpiredUserToken;
+      return expires;
     }
 }

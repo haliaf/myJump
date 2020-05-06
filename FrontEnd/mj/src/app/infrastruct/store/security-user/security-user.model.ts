@@ -28,3 +28,6 @@ export interface ISystemUserAccessInfoDto {
 
    accessError: string;
 }
+export interface ISecurityUserRegisterModel {
+  isLoading: boolean;
+}

@@ -5,34 +5,61 @@ import { Observable, BehaviorSubject } from 'rxjs';
 
 @Injectable()
 export class AuthService {
-  uri = 'http://localhost:8080/api';
+  uri = 'http://localhost:8080/main/api';
   public token: string;
-  loggedIn = true;
+  loggedIn = false;
 
   constructor(private router: Router, private http: HttpClient) { }
 
+  refreshToken() {
+    this.http.post(this.uri + '/auth/refreshtoken', { AccessToken: localStorage.getItem('auth_token'), RefreshToken: localStorage.getItem('refreshToken') })
+    .subscribe((resp: any) => {
+      localStorage.setItem('auth_token', resp.accessToken.token);
+      localStorage.setItem('expiresIn', resp.accessToken.expiresIn);
+      localStorage.setItem('refreshToken', resp.refreshToken);
+      localStorage.setItem('expiresGetDate', new Date().toString());
+      this.token = resp.auth_token;
+    });
+  }
 
   logIn(email: string, password: string) {
     this.http.post(this.uri + '/auth/login', { UserName: email, Password: password })
       .subscribe((resp: any) => {
+        localStorage.setItem('auth_token', resp.accessToken.token);
+        localStorage.setItem('expiresIn', resp.accessToken.expiresIn);
+        localStorage.setItem('refreshToken', resp.refreshToken);
+        localStorage.setItem('expiresGetDate', new Date().toString());
 
-        localStorage.setItem('auth_token', resp.auth_token);
         this.token = resp.auth_token;
-        this.loggedIn = true;
-        this.router.navigate(['profile']);
+
+        this.router.navigate(['/profile']);
       });
-      }
+  }
 
   logOut() {
+    this.token = null;
     this.loggedIn = false;
+    localStorage.clear();
     this.router.navigate(['/login-form']);
   }
 
   public get currentUserTokenValue(): string {
     return this.token;
-}
+  }
+
+  public get isExpiredUserToken(): boolean {
+    const expiresGetDate = new Date(localStorage.getItem('expiresGetDate'));
+    const expiresIn = +localStorage.getItem('expiresIn');
+    const currentDate = new Date();
+    currentDate.setSeconds(currentDate.getSeconds() - expiresIn + 120);
+    if (currentDate >= expiresGetDate && expiresIn > 0) {
+      return true;
+    }
+    return false;
+  }
+
   get isLoggedIn() {
-    return this.loggedIn;
+    return localStorage.getItem('auth_token')?.length > 1;
   }
 }
 
