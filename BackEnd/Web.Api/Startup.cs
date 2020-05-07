@@ -190,11 +190,11 @@ namespace Web.Api
                         });
                 });
 
-            // Enable middleware to serve swagger-ui (HTML, JS, CSS, etc.), 
+            // Enable middleware to serve swagger-ui (HTML, JS, CSS, etc.),
             // specifying the Swagger JSON endpoint.
             app.UseSwaggerUI(c =>
             {
-                c.SwaggerEndpoint("/swagger/v1/swagger.json", "AspNetCoreApiStarter V1");
+                c.SwaggerEndpoint("http://localhost:8080/main/swagger/v1/swagger.json", "AspNetCoreApiStarter V1");
             });
 
             // Enable middleware to serve generated Swagger as a JSON endpoint.

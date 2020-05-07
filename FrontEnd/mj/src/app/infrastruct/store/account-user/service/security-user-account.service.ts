@@ -14,7 +14,7 @@ export class AccountUserService {
    ) { }
 
    getUserAccount(): Observable<IUserAccountDto> {
-    const urlPath = environment.apiUrl + '/main/api/product';
+    const urlPath = environment.apiUrl + '/main/api/accounts';
 
     let authToken = localStorage.getItem('auth_token');
     const httpOptions = {

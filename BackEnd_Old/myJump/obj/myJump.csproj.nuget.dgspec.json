@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Ankh\\myJump\\BackEnd\\myJump\\myJump.csproj": {}
+    "C:\\Ankh\\myJump\\BackEnd_Old\\myJump\\myJump.csproj": {}
   },
   "projects": {
-    "C:\\Ankh\\myJump\\BackEnd\\Entity\\Entity.csproj": {
+    "C:\\Ankh\\myJump\\BackEnd_Old\\Entity\\Entity.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Ankh\\myJump\\BackEnd\\Entity\\Entity.csproj",
+        "projectUniqueName": "C:\\Ankh\\myJump\\BackEnd_Old\\Entity\\Entity.csproj",
         "projectName": "Entity",
-        "projectPath": "C:\\Ankh\\myJump\\BackEnd\\Entity\\Entity.csproj",
+        "projectPath": "C:\\Ankh\\myJump\\BackEnd_Old\\Entity\\Entity.csproj",
         "packagesPath": "C:\\Users\\Alex\\.nuget\\packages\\",
-        "outputPath": "C:\\Ankh\\myJump\\BackEnd\\Entity\\obj\\",
+        "outputPath": "C:\\Ankh\\myJump\\BackEnd_Old\\Entity\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Alex\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -59,14 +59,14 @@
         }
       }
     },
-    "C:\\Ankh\\myJump\\BackEnd\\myJump\\myJump.csproj": {
+    "C:\\Ankh\\myJump\\BackEnd_Old\\myJump\\myJump.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Ankh\\myJump\\BackEnd\\myJump\\myJump.csproj",
+        "projectUniqueName": "C:\\Ankh\\myJump\\BackEnd_Old\\myJump\\myJump.csproj",
         "projectName": "myJump",
-        "projectPath": "C:\\Ankh\\myJump\\BackEnd\\myJump\\myJump.csproj",
+        "projectPath": "C:\\Ankh\\myJump\\BackEnd_Old\\myJump\\myJump.csproj",
         "packagesPath": "C:\\Users\\Alex\\.nuget\\packages\\",
-        "outputPath": "C:\\Ankh\\myJump\\BackEnd\\myJump\\obj\\",
+        "outputPath": "C:\\Ankh\\myJump\\BackEnd_Old\\myJump\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Alex\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -82,8 +82,8 @@
         "frameworks": {
           "netcoreapp2.1": {
             "projectReferences": {
-              "C:\\Ankh\\myJump\\BackEnd\\Entity\\Entity.csproj": {
-                "projectPath": "C:\\Ankh\\myJump\\BackEnd\\Entity\\Entity.csproj"
+              "C:\\Ankh\\myJump\\BackEnd_Old\\Entity\\Entity.csproj": {
+                "projectPath": "C:\\Ankh\\myJump\\BackEnd_Old\\Entity\\Entity.csproj"
               }
             }
           }
@@ -112,10 +112,6 @@
             "FluentValidation.AspNetCore": {
               "target": "Package",
               "version": "[8.1.3, )"
-            },
-            "IdentityServer3": {
-              "target": "Package",
-              "version": "[2.6.3, )"
             },
             "Microsoft.AspNetCore.App": {
               "suppressParent": "All",

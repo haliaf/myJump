@@ -4551,6 +4551,7 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v2.1",
         "dependencies": {
+          "Microsoft.AspNetCore.Hosting": "2.0.3",
           "autofac": "4.8.1"
         },
         "compile": {
@@ -4564,6 +4565,7 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v2.1",
         "dependencies": {
+          "Microsoft.AspNetCore.Hosting": "2.0.3",
           "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "2.2.0-preview2-35157",
           "Microsoft.EntityFrameworkCore": "2.2.0-preview2-35157",
           "Microsoft.EntityFrameworkCore.Design": "2.2.0-preview2-35157",

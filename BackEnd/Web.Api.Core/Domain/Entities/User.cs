@@ -13,6 +13,7 @@ namespace Web.Api.Core.Domain.Entities
         public string IdentityId { get; private set; }
         public string UserName { get; private set; } // Required by automapper
         public string Email { get; private set; }
+        public string UserProfileImages { get; private set; }
         public string PasswordHash { get; private set; }
 
         private readonly List<RefreshToken> _refreshTokens = new List<RefreshToken>();
@@ -26,6 +27,11 @@ namespace Web.Api.Core.Domain.Entities
             LastName = lastName;
             IdentityId = identityId;
             UserName = userName;
+        }
+
+        public void AddUserProfileImages(string imgPath)
+        {
+            UserProfileImages = imgPath;
         }
 
         public bool HasValidRefreshToken(string refreshToken)

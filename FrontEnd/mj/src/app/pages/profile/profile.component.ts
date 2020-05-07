@@ -14,28 +14,22 @@ export class ProfileComponent implements OnInit {
   fullName: string;
   constructor( private _store: Store<IAppStore>) {
     this.employee = {
-      ID: 7,
-      FirstName: 'Sandra',
-      LastName: 'Johnson',
-      Prefix: 'Mrs.',
-      Position: 'Controller',
-      Picture: 'images/employees/06.png',
-      BirthDate: new Date('1974/11/15'),
-      HireDate: new Date('2005/05/11'),
-      /* tslint:disable-next-line:max-line-length */
-      Notes: 'Sandra is a CPA and has been our controller since 2008. She loves to interact with staff so if you`ve not met her, be certain to say hi.\r\n\r\nSandra has 2 daughters both of whom are accomplished gymnasts.',
-      Address: '4600 N Virginia Rd.'
+      Email: 'Sandra',
+      NickName: 'Johnson',
+      Password: 'Mrs.',
+      Country: 'Controller',
+      Town: 'images/employees/06.png'
     };
     this.colCountByScreen = {
       xs: 1,
-      sm: 2,
-      md: 3,
-      lg: 4
+      sm: 1,
+      md: 1,
+      lg: 1
     };
   }
   ngOnInit() {
     this._store.dispatch(new SecurityUserAccountLoadAction());
-    this._store.select(m=> m.securityUserAccountStore).subscribe(z=> this.fullName = z.fullName);
+    this._store.select(m=> m.securityUserAccountStore).subscribe(z=> this.fullName = z.firstName);
 
  }
 }

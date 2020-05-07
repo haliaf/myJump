@@ -3,11 +3,25 @@ body{
   overflow-x: hidden;
 }
 
+.pointer{
+  cursor: pointer;
+}
+.padding5{
+  padding: 5px;
+}
 .iconFLoat{
   float: left!important;
   padding-top: 2px!important;
 }
-
+.fontsize10{
+  font-size: 10px;
+}
+.padding-bottom-0{
+  padding-bottom: 0px!important;
+}
+.custom-btn-height .dx-button-text{
+  line-height: 14px!important;
+}
 #icon-close{
   border: 4px solid rgb(110, 0, 0);
   border-radius: 50%;

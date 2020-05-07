@@ -1,6 +1,7 @@
 ﻿using System.Linq;
 using System.Threading.Tasks;
 using AutoMapper;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Web.Api.Core.Domain.Entities;
 using Web.Api.Core.Dto;
@@ -16,14 +17,15 @@ namespace Web.Api.Infrastructure.Data.Repositories
     {
         private readonly UserManager<AppUser> _userManager;
         private readonly IMapper _mapper;
-        
+        private readonly IHttpContextAccessor _httpContextAccessor;
 
-        public UserRepository(UserManager<AppUser> userManager, IMapper mapper, AppDbContext appDbContext): base(appDbContext)
+        public UserRepository(UserManager<AppUser> userManager, IMapper mapper, AppDbContext appDbContext, IHttpContextAccessor httpContextAccessor) : base(appDbContext)
         {
             _userManager = userManager;
             _mapper = mapper;
+            _httpContextAccessor = httpContextAccessor;
         }
-
+       
         public async Task<CreateUserResponse> Create(string firstName, string lastName, string email, string userName, string password)
         {
             var appUser = new AppUser {Email = email, UserName = userName};
@@ -47,6 +49,15 @@ namespace Web.Api.Infrastructure.Data.Repositories
         public async Task<bool> CheckPassword(User user, string password)
         {
             return await _userManager.CheckPasswordAsync(_mapper.Map<AppUser>(user), password);
+        }
+
+        public async Task<AddUserProfileImagesRepositoryResponse> AddUserProfileImages(string imagesBase64)
+        {
+            var currentUserName = _httpContextAccessor.HttpContext.User.Identity.Name;
+            var user = _appDbContext.Users.Single(m => m.UserName == currentUserName);
+            user.AddUserProfileImages(imagesBase64);
+            await _appDbContext.SaveChangesAsync();
+            return new AddUserProfileImagesRepositoryResponse(imagesBase64);
         }
     }
 }

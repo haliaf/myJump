@@ -44,7 +44,7 @@ export class AuthService {
   }
 
   public get currentUserTokenValue(): string {
-    return this.token;
+    return localStorage.getItem('auth_token');
   }
 
   public get isExpiredUserToken(): boolean {
@@ -68,6 +68,7 @@ export class AuthGuardService implements CanActivate {
   constructor(private router: Router, private authService: AuthService) { }
 
   canActivate(route: ActivatedRouteSnapshot): boolean {
+   // return true;
     const isLoggedIn = this.authService.isLoggedIn;
     const isLoginForm = route.routeConfig.path === 'login-form';
 

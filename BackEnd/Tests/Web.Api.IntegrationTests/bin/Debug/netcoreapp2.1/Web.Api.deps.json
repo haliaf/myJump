@@ -1243,6 +1243,7 @@
       },
       "Web.Api.Core/1.0.0": {
         "dependencies": {
+          "Microsoft.AspNetCore.Hosting": "2.1.1",
           "Autofac": "4.8.1"
         },
         "runtime": {
@@ -1254,6 +1255,7 @@
       },
       "Web.Api.Infrastructure/1.0.0": {
         "dependencies": {
+          "Microsoft.AspNetCore.Hosting": "2.1.1",
           "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "2.2.0-preview2-35157",
           "Microsoft.EntityFrameworkCore": "2.2.0-preview2-35157",
           "Microsoft.EntityFrameworkCore.Design": "2.2.0-preview2-35157",

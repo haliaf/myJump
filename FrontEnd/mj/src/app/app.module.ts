@@ -1,3 +1,4 @@
+import { DxButtonModule } from 'devextreme-angular';
 import { SecurityUserEffects } from './infrastruct/store/security-user/security-user.effects';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
@@ -22,6 +23,7 @@ import { RegisterUserEffects } from './infrastruct/store/register-user/register-
 import { LocationStrategy, HashLocationStrategy } from '@angular/common';
 import { AppSpinnerComponent, AppSpinnerModule } from './shared/components/app-spinner/app-spinner.component';
 import { SecurityUserAccountEffects } from './infrastruct/store/account-user/account-user..effects';
+import { UserMenuInfoComponent } from './shared/components/user-menu-info/user-menu-info.component';
 
 
 export function tokenGetter() {
@@ -35,11 +37,12 @@ export function tokenGetter() {
   ],
   imports: [
     BrowserModule,
+    DxButtonModule,
     SideNavOuterToolbarModule,
     SideNavInnerToolbarModule,
     FooterModule,
     LoginFormModule,
-
+    BrowserAnimationsModule,
     RegisterComponentFormModule,
     AppRoutingModule,
     FormsModule,

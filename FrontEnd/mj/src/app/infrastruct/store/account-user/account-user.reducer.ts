@@ -18,7 +18,9 @@ export function securityUserAccountReducer(state: ISecurityUserAccountModel = in
       case SecurityUserAccountActionTypes.LoadComplete:
          const response = action as SecurityUserAccountLoadCompleteAction;
          model.isLoading = false;
-         model.fullName = response.payload.fullName;
+         model.firstName = response.payload.firstName;
+         model.lastName = response.payload.lastName;
+         model.email = response.payload.email;
          return model;
 
       default:

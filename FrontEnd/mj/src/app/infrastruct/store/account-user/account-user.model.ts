@@ -2,5 +2,7 @@
 
 export interface ISecurityUserAccountModel {
   isLoading: boolean;
-  fullName?: string;
+  firstName?: string;
+  lastName?: string;
+  email?: string;
 }
