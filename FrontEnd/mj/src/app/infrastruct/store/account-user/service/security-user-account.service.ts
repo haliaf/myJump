@@ -15,17 +15,7 @@ export class AccountUserService {
 
    getUserAccount(): Observable<IUserAccountDto> {
     const urlPath = environment.apiUrl + '/main/api/accounts';
-
-    let authToken = localStorage.getItem('auth_token');
-    const httpOptions = {
-      headers: new HttpHeaders({
-        'Content-Type':  'application/json',
-        'Authorization': `Bearer ${authToken}`
-      })
-    };
-   // return this.http.get<IUserAccountDto>(urlPath, httpOptions);
     return this.http.get<IUserAccountDto>(urlPath);
-
   }
    //   const urlPath = environment.webApiUrl + '/user/infosimple?_t=' + environment.token;
     //  return this._http.get<ISystemUserSimpleInfoDto>(urlPath, { withCredentials: true }); // PortalHttpOptions.VALUE

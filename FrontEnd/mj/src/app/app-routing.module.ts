@@ -1,6 +1,7 @@
+import { CommonModule } from '@angular/common';
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { DxDataGridModule, DxFormModule, DxLoadIndicatorModule, DxScrollViewModule, DxButtonModule } from 'devextreme-angular';
+import { DxDataGridModule, DxFormModule, DxLoadIndicatorModule, DxScrollViewModule, DxButtonModule, DxFileUploaderModule } from 'devextreme-angular';
 import { SingleCardComponent } from './layouts';
 import { DisplayDataComponent } from './pages/display-data/display-data.component';
 import { HomeComponent } from './pages/home/home.component';
@@ -47,7 +48,8 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes), DxDataGridModule, DxFormModule, DxScrollViewModule,  DxLoadIndicatorModule, DxButtonModule],
+  // tslint:disable-next-line: max-line-length
+  imports: [RouterModule.forRoot(routes), DxDataGridModule, DxFormModule, DxScrollViewModule,  DxLoadIndicatorModule, DxButtonModule, DxFileUploaderModule, CommonModule],
   providers: [AuthGuardService],
   exports: [RouterModule],
   // tslint:disable-next-line: max-line-length

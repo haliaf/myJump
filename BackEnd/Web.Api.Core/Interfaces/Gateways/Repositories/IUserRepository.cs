@@ -8,7 +8,7 @@ namespace Web.Api.Core.Interfaces.Gateways.Repositories
     public interface IUserRepository  : IRepository<User>
     {
         Task<CreateUserResponse> Create(string firstName, string lastName, string email, string userName, string password);
-        Task<AddUserProfileImagesRepositoryResponse> AddUserProfileImages(string imagesBase64);
+        Task<AddUserProfileImagesRepositoryResponse> AddUserProfileImages(string imagesBase64, string userName);
         Task<User> FindByName(string userName);
         Task<bool> CheckPassword(User user, string password);
     }

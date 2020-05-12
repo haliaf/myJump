@@ -1,6 +1,9 @@
-﻿using System.Security.Claims;
+﻿using System.Collections.Generic;
+using System.IO;
+using System.Security.Claims;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Web.Api.Core.Dto.UseCaseRequests;
 using Web.Api.Core.Interfaces.UseCases;
@@ -52,11 +55,12 @@ namespace Web.Api.Controllers
         }
 
         [Authorize(Policy = "ApiUser")]
-        [HttpPut]
+        [HttpPost]
         [Route("updateimage")]
-        public async Task<ActionResult> UpdateImage([FromBody] AddUserImagesRequestDto addUserImagesRequestDto)
+        public async Task<ActionResult> UpdateImage()
         {
-            await _addUserProfileImagesUseCase.Handle(new AddUserImagesRequest(addUserImagesRequestDto.ImagesBase64), _addUserImagesPresenter);
+            var user = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+            await _addUserProfileImagesUseCase.Handle(new AddUserImagesRequest(Request.Form.Files, user), _addUserImagesPresenter);
             return _addUserImagesPresenter.ContentResult;
         }
     }

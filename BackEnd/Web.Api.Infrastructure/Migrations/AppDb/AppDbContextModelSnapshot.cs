@@ -62,6 +62,8 @@ namespace Web.Api.Infrastructure.Migrations.AppDb
 
                     b.Property<string>("UserName");
 
+                    b.Property<string>("UserProfileImages");
+
                     b.HasKey("Id");
 
                     b.ToTable("Users");

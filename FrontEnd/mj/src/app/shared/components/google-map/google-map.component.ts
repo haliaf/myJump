@@ -1,22 +1,33 @@
-import { Component, OnInit, Renderer2, Inject } from '@angular/core';
+import { Component, OnInit, Renderer2, Inject, Input } from '@angular/core';
 import { DOCUMENT } from '@angular/common';
+import { Store } from '@ngrx/store';
+import { IAppStore } from 'src/app/infrastruct/store/store-root.module';
 
 @Component({
   selector: 'app-google-map',
   templateUrl: './google-map.component.html',
   styleUrls: ['./google-map.component.scss']
 })
-export class GoogleMapComponent implements OnInit {
 
-  constructor(   @Inject(DOCUMENT) private document: Document,
-                 private renderer2: Renderer2) { }
+export class GoogleMapComponent implements OnInit {
+  @Input()
+  userNavItemImg: string;
+
+  constructor(@Inject(DOCUMENT) private document: Document,
+              private renderer2: Renderer2) { }
 
   ngOnInit() {
-
-
     const srcScript = this.renderer2.createElement('script');
     srcScript.type = 'text/javascript';
     srcScript.text = `
+    var icons = {
+      userNav: {
+       icon: '\mj\assets\img\' + 'navUsr.png'
+
+      }
+    };
+    var directionsService = null;
+    var directionsDisplay;
     function initMaps() {
       if (navigator.geolocation) {
          console.log('Geolocation is supported!');
@@ -29,9 +40,12 @@ export class GoogleMapComponent implements OnInit {
    function initMap(startPos) {
      var myLatLng =  {lat: startPos.coords.latitude, lng: startPos.coords.longitude};
      // Styles a map in night mode.
+     directionsService = new google.maps.DirectionsService();
+     var directionsDisplay = new google.maps.DirectionsRenderer;
+
      var map = new google.maps.Map(document.getElementById('map'), {
-       center: myLatLng,
-       zoom: 16,
+      zoom: 16,
+      center: myLatLng,
        styles: [
          {elementType: 'geometry', stylers: [{color: '#242f3e'}]},
          {elementType: 'labels.text.stroke', stylers: [{color: '#242f3e'}]},
@@ -116,8 +130,47 @@ export class GoogleMapComponent implements OnInit {
        var marker = new google.maps.Marker({
        position: myLatLng,
        map: map,
-       title: 'Hello World!'
+      // content: '<div class="richmarker-wrapper"><center><img class="marker-image" src="` + this.userNavItemImg + `"></img><p class="marker-nickname">' + markerData.story.user.nickName + '</p></center></div>',
+       icon: '` + this.userNavItemImg + `',
+       title: 'User'
      });
+     directionsDisplay.setMap(map);
+     //Здесь будем проверять директивой сверху
+     map.addListener('click', function(e) {
+      window.localStorage.setItem('name', e.latLng);
+      placeMarker(e.latLng, map);
+      Route(myLatLng, e.latLng);
+  });
+
+  function Route(cord1, cord2) {
+
+    cord1.lat
+    cord1.lng
+    var start = new google.maps.LatLng(cord1.lat, cord1.lng);
+    //var end = new google.maps.LatLng(18.211685, -67.141684);
+    var end = cord2;
+    var request = {
+      origin: start,
+      destination: end,
+      travelMode: google.maps.TravelMode.WALKING
+    };
+    directionsService.route(request, function(result, status) {
+      if (status == google.maps.DirectionsStatus.OK) {
+        directionsDisplay.setDirections(result);
+      } else {
+        alert("couldn't get directions:" + status);
+      }
+    });
+  }
+
+  function placeMarker(position, map) {
+    var marker = new google.maps.Marker({
+        position: position,
+        map: map
+    });
+    map.panTo(position);
+}
+
    }
     `;
     this.renderer2.appendChild(this.document.body, srcScript);

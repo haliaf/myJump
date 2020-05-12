@@ -51,6 +51,12 @@ export abstract class ViewInputBlock<TModel> extends BaseDestroyComponent {
     });
   }
 
+  propChangeHandler(e){
+    const updatedField = e.dataField.toLowerCase();
+    const newValue = e.value;
+    this.propOnChange(newValue, updatedField);
+  }
+
   protected _extractOid(src: any, propName: string): string {
     return ObjectHelper.extractOid(src, propName);
   }

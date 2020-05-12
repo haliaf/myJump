@@ -1,12 +1,37 @@
+<ng-container *ngIf="store$ | async; let store">
 <h2 class="content-block">Мой профиль</h2>
-
-
 <div class="content-block dx-card responsive-paddings">
   <h2>{{fullName}}</h2>
-    <dx-form id="form"
-        [formData]="employee"
-        labelLocation="top"
-        [colCountByScreen]="colCountByScreen"
+  <form (submit)="changeUserProfile($event)">
+    <dx-form
+      id="form"
+      class="align-self-center"
+      name = "dxUserProfileForm"
+
+      [colCountByScreen]="colCountByScreen"
+      [showValidationSummary]="true"
+      (onFieldDataChanged)="propChangeHandler($event)"
     >
-    </dx-form>
+
+  </dx-form>
+  <div id="fileuploader-container">
+			<div class="user-avatar">
+        <img src="{{store.userprofileimages}}">
+      </div>
+    <dx-file-uploader
+        selectButtonText="Select photo"
+        labelText=""
+        accept="image/*"
+        (onUploaded)="uploadComplete($event)"
+        uploadUrl = "http://localhost:8080/main/api/Accounts/updateimage"
+        [uploadHeaders] = "uploadHeader"
+        uploadMode="instantly"
+        [allowedFileExtensions]="['.jpg', '.jpeg', '.gif', '.png']">
+    </dx-file-uploader>
 </div>
+    </form>
+    <div class="dx-field">
+      <dx-button type="normal" text="Сохранить" width="33%" (onClick)="changeUserProfile($event)"></dx-button>
+  </div>
+</div>
+</ng-container>

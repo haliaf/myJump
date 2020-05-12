@@ -25,7 +25,7 @@ namespace Web.Api.Core.UseCases
             {
                 outputPort.Handle(new CurrentUserResponse(new[] { "User Profile Not Found" }, false));
             }
-            outputPort.Handle(new CurrentUserResponse(user.Email, user.FirstName, user.LastName, true));
+            outputPort.Handle(new CurrentUserResponse(user.UserProfileImages, user.Email, user.FirstName, user.LastName, true));
             return true;
         }
     }

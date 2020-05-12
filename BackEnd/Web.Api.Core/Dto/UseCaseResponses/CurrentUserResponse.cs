@@ -8,6 +8,7 @@ namespace Web.Api.Core.Dto.UseCaseResponses
         public string FirstName { get; }
         public string LastName { get; }
         public string Email { get; }
+        public string UserProfileImages { get; }
         public IEnumerable<string> Errors {  get; }
 
         public CurrentUserResponse(IEnumerable<string> errors, bool success=false, string message=null) : base(success, message)
@@ -15,11 +16,12 @@ namespace Web.Api.Core.Dto.UseCaseResponses
             Errors = errors;
         }
 
-        public CurrentUserResponse(string email, string firstName, string lastName, bool success = false, string message = null) : base(success, message)
+        public CurrentUserResponse(string userProfileImg, string email, string firstName, string lastName, bool success = false, string message = null) : base(success, message)
         {
             FirstName = firstName;
             LastName = lastName;
             Email = email;
+            UserProfileImages = userProfileImg;
         }
     }
 }

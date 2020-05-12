@@ -1,15 +1,19 @@
-﻿using Web.Api.Core.Dto.UseCaseResponses;
+﻿using Microsoft.AspNetCore.Http;
+using System.Collections.Generic;
+using Web.Api.Core.Dto.UseCaseResponses;
 using Web.Api.Core.Interfaces;
 
 namespace Web.Api.Core.Dto.UseCaseRequests
 {
     public class AddUserImagesRequest : IUseCaseRequest<AddUserImagesResponse>
     {
-        public string Base64Images { get; }
+        public IEnumerable<IFormFile> files { get; }
+        public string currentUser { get;  }
 
-        public AddUserImagesRequest(string base64Images)
+    public AddUserImagesRequest(IEnumerable<IFormFile> fileArr, string usr)
         {
-            Base64Images = base64Images;
+            files = fileArr;
+            currentUser = usr;
         }
     }
 }

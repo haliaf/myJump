@@ -51,13 +51,12 @@ namespace Web.Api.Infrastructure.Data.Repositories
             return await _userManager.CheckPasswordAsync(_mapper.Map<AppUser>(user), password);
         }
 
-        public async Task<AddUserProfileImagesRepositoryResponse> AddUserProfileImages(string imagesBase64)
+        public async Task<AddUserProfileImagesRepositoryResponse> AddUserProfileImages(string imagesPath, string userName)
         {
-            var currentUserName = _httpContextAccessor.HttpContext.User.Identity.Name;
-            var user = _appDbContext.Users.Single(m => m.UserName == currentUserName);
-            user.AddUserProfileImages(imagesBase64);
+            var user = _appDbContext.Users.Single(m => m.UserName == userName);
+            user.AddUserProfileImages(imagesPath);
             await _appDbContext.SaveChangesAsync();
-            return new AddUserProfileImagesRepositoryResponse(imagesBase64);
+            return new AddUserProfileImagesRepositoryResponse(imagesPath);
         }
     }
 }

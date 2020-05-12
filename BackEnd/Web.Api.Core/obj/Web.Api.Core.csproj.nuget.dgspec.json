@@ -48,6 +48,10 @@
               "version": "[2.1.0, )",
               "autoReferenced": true
             },
+            "System.Drawing.Common": {
+              "target": "Package",
+              "version": "[4.7.0, )"
+            },
             "autofac": {
               "target": "Package",
               "version": "[4.8.1, )"
