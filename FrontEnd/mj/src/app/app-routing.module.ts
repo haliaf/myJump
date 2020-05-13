@@ -1,7 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { DxDataGridModule, DxFormModule, DxLoadIndicatorModule, DxScrollViewModule, DxButtonModule, DxFileUploaderModule } from 'devextreme-angular';
+import { DxDataGridModule, DxFormModule, DxLoadIndicatorModule, DxScrollViewModule, DxButtonModule, DxFileUploaderModule, DxTabPanelModule } from 'devextreme-angular';
 import { SingleCardComponent } from './layouts';
 import { DisplayDataComponent } from './pages/display-data/display-data.component';
 import { HomeComponent } from './pages/home/home.component';
@@ -12,6 +12,7 @@ import { LoginFormComponent } from './shared/components';
 import { AppSpinnerComponent } from './shared/components/app-spinner/app-spinner.component';
 import { GoogleMapComponent } from './shared/components/google-map/google-map.component';
 import { AuthGuardService } from './shared/services';
+import { LobbyMainMapComponent } from './pages/home/lobby-main-map/lobby.main.map.component';
 
 
 const routes: Routes = [
@@ -49,10 +50,10 @@ const routes: Routes = [
 
 @NgModule({
   // tslint:disable-next-line: max-line-length
-  imports: [RouterModule.forRoot(routes), DxDataGridModule, DxFormModule, DxScrollViewModule,  DxLoadIndicatorModule, DxButtonModule, DxFileUploaderModule, CommonModule],
+  imports: [RouterModule.forRoot(routes), DxDataGridModule, DxFormModule, DxScrollViewModule, DxTabPanelModule, DxLoadIndicatorModule, DxButtonModule, DxFileUploaderModule, CommonModule],
   providers: [AuthGuardService],
   exports: [RouterModule],
   // tslint:disable-next-line: max-line-length
-  declarations: [HomeComponent, ProfileComponent, DisplayDataComponent, MainMapComponent, GoogleMapComponent, SingleCardComponent]
+  declarations: [HomeComponent, ProfileComponent, DisplayDataComponent, MainMapComponent, LobbyMainMapComponent, GoogleMapComponent, SingleCardComponent]
 })
 export class AppRoutingModule { }

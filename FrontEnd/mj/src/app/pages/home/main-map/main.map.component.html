@@ -1,3 +1,6 @@
+
 <ng-container *ngIf="store$ | async; let store">
-<app-google-map userNavItemImg={{store.userprofileimagesresized}}></app-google-map>
+  <div *ngIf="tabSelected">
+<app-google-map userNavItemImg={{store.userprofileimagesresized}} mainIdCardElement="map"></app-google-map>
+  </div>
 </ng-container>

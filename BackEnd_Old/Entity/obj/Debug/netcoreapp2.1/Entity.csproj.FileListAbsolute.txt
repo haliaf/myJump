@@ -1,8 +1,0 @@
-C:\Ankh\myJump\BackEnd\Entity\bin\Debug\netcoreapp2.1\Entity.deps.json
-C:\Ankh\myJump\BackEnd\Entity\bin\Debug\netcoreapp2.1\Entity.dll
-C:\Ankh\myJump\BackEnd\Entity\bin\Debug\netcoreapp2.1\Entity.pdb
-C:\Ankh\myJump\BackEnd\Entity\obj\Debug\netcoreapp2.1\Entity.csprojAssemblyReference.cache
-C:\Ankh\myJump\BackEnd\Entity\obj\Debug\netcoreapp2.1\Entity.AssemblyInfoInputs.cache
-C:\Ankh\myJump\BackEnd\Entity\obj\Debug\netcoreapp2.1\Entity.AssemblyInfo.cs
-C:\Ankh\myJump\BackEnd\Entity\obj\Debug\netcoreapp2.1\Entity.dll
-C:\Ankh\myJump\BackEnd\Entity\obj\Debug\netcoreapp2.1\Entity.pdb

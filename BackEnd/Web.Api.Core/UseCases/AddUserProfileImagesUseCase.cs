@@ -48,13 +48,13 @@ namespace Web.Api.Core.UseCases
                         await formFile.CopyToAsync(stream);
                         using (var image = new Bitmap(stream))
                         {
-                            var resized = new Bitmap(40, 40);
+                            var resized = new Bitmap(20, 20);
                             using (var graphics = Graphics.FromImage(resized))
                             {
                                 graphics.CompositingQuality = CompositingQuality.HighSpeed;
                                 graphics.InterpolationMode = InterpolationMode.HighQualityBicubic;
                                 graphics.CompositingMode = CompositingMode.SourceCopy;
-                                graphics.DrawImage(image, 0, 0, 40, 40);
+                                graphics.DrawImage(image, 0, 0, 20, 20);
                                 var resfilePath = System.IO.Path.Combine(webRoot, $"resized-{fileName}");
                                 resized.Save(resfilePath, ImageFormat.Jpeg);
                             }

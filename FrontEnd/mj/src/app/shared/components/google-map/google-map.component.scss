@@ -1,5 +1,5 @@
-#map {
-  height: 350px;
+.map {
+  height: 100vh;
 }
 
 .map-control {
@@ -13,7 +13,7 @@
   display: none;
 }
 /* Display the control once it is inside the map. */
-#map .map-control { display: block; }
+.map .map-control { display: block; }
 
 .selector-control {
   font-size: 14px;
