@@ -19,6 +19,56 @@ namespace Web.Api.Infrastructure.Migrations.AppDb
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+            modelBuilder.Entity("Web.Api.Core.Domain.Entities.Coordinate", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<DateTime>("Created");
+
+                    b.Property<decimal>("Latitude");
+
+                    b.Property<decimal>("Longitude");
+
+                    b.Property<DateTime>("Modified");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Coordinates");
+                });
+
+            modelBuilder.Entity("Web.Api.Core.Domain.Entities.MapEvent", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<DateTime>("Created");
+
+                    b.Property<DateTime?>("EndMapEvent");
+
+                    b.Property<DateTime>("Modified");
+
+                    b.Property<int?>("StartCoordinateId");
+
+                    b.Property<DateTime?>("StartMapEvent");
+
+                    b.Property<int?>("StopCoordinateId");
+
+                    b.Property<int?>("UserId");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("StartCoordinateId");
+
+                    b.HasIndex("StopCoordinateId");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("MapEvents");
+                });
+
             modelBuilder.Entity("Web.Api.Core.Domain.Entities.RefreshToken", b =>
                 {
                     b.Property<int>("Id")
@@ -67,6 +117,21 @@ namespace Web.Api.Infrastructure.Migrations.AppDb
                     b.HasKey("Id");
 
                     b.ToTable("Users");
+                });
+
+            modelBuilder.Entity("Web.Api.Core.Domain.Entities.MapEvent", b =>
+                {
+                    b.HasOne("Web.Api.Core.Domain.Entities.Coordinate", "StartCoordinate")
+                        .WithMany()
+                        .HasForeignKey("StartCoordinateId");
+
+                    b.HasOne("Web.Api.Core.Domain.Entities.Coordinate", "StopCoordinate")
+                        .WithMany()
+                        .HasForeignKey("StopCoordinateId");
+
+                    b.HasOne("Web.Api.Core.Domain.Entities.User", "User")
+                        .WithMany("MapEvents")
+                        .HasForeignKey("UserId");
                 });
 
             modelBuilder.Entity("Web.Api.Core.Domain.Entities.RefreshToken", b =>
