@@ -658,6 +658,7 @@
           "Microsoft.TestPlatform.TestHost": "15.8.0"
         }
       },
+      "Microsoft.NETCore.Platforms/3.1.0": {},
       "Microsoft.TestPlatform.ObjectModel/15.8.0": {
         "dependencies": {
           "System.ComponentModel.EventBasedAsync": "4.0.11",
@@ -908,7 +909,30 @@
           }
         }
       },
-      "Microsoft.Win32.Primitives/4.0.1": {},
+      "Microsoft.Win32.Primitives/4.0.1": {
+        "dependencies": {
+          "Microsoft.NETCore.Platforms": "3.1.0"
+        }
+      },
+      "Microsoft.Win32.SystemEvents/4.7.0": {
+        "dependencies": {
+          "Microsoft.NETCore.Platforms": "3.1.0"
+        },
+        "runtime": {
+          "lib/netstandard2.0/Microsoft.Win32.SystemEvents.dll": {
+            "assemblyVersion": "4.0.2.0",
+            "fileVersion": "4.700.19.56404"
+          }
+        },
+        "runtimeTargets": {
+          "runtimes/win/lib/netcoreapp2.0/Microsoft.Win32.SystemEvents.dll": {
+            "rid": "win",
+            "assetType": "runtime",
+            "assemblyVersion": "4.0.2.0",
+            "fileVersion": "4.700.19.56404"
+          }
+        }
+      },
       "NLog/4.5.10": {
         "runtime": {
           "lib/netstandard2.0/NLog.dll": {
@@ -1055,6 +1079,7 @@
       },
       "System.Diagnostics.Process/4.1.0": {
         "dependencies": {
+          "Microsoft.NETCore.Platforms": "3.1.0",
           "Microsoft.Win32.Primitives": "4.0.1",
           "System.Threading.ThreadPool": "4.0.10"
         }
@@ -1064,7 +1089,37 @@
           "System.Diagnostics.TraceSource": "4.0.0"
         }
       },
-      "System.Diagnostics.TraceSource/4.0.0": {},
+      "System.Diagnostics.TraceSource/4.0.0": {
+        "dependencies": {
+          "Microsoft.NETCore.Platforms": "3.1.0"
+        }
+      },
+      "System.Drawing.Common/4.7.0": {
+        "dependencies": {
+          "Microsoft.NETCore.Platforms": "3.1.0",
+          "Microsoft.Win32.SystemEvents": "4.7.0"
+        },
+        "runtime": {
+          "lib/netstandard2.0/System.Drawing.Common.dll": {
+            "assemblyVersion": "4.0.0.1",
+            "fileVersion": "4.6.26919.2"
+          }
+        },
+        "runtimeTargets": {
+          "runtimes/unix/lib/netcoreapp2.0/System.Drawing.Common.dll": {
+            "rid": "unix",
+            "assetType": "runtime",
+            "assemblyVersion": "4.0.0.1",
+            "fileVersion": "4.6.26919.2"
+          },
+          "runtimes/win/lib/netcoreapp2.0/System.Drawing.Common.dll": {
+            "rid": "win",
+            "assetType": "runtime",
+            "assemblyVersion": "4.0.0.1",
+            "fileVersion": "4.6.26919.2"
+          }
+        }
+      },
       "System.IdentityModel.Tokens.Jwt/5.2.4": {
         "dependencies": {
           "Microsoft.IdentityModel.JsonWebTokens": "5.2.4",
@@ -1129,6 +1184,9 @@
       },
       "System.Security.Principal/4.3.0": {},
       "System.Text.Encoding.CodePages/4.5.0": {
+        "dependencies": {
+          "Microsoft.NETCore.Platforms": "3.1.0"
+        },
         "runtime": {
           "lib/netstandard2.0/System.Text.Encoding.CodePages.dll": {
             "assemblyVersion": "4.1.1.0",
@@ -1218,6 +1276,7 @@
           "Autofac.Extensions.DependencyInjection": "4.3.0",
           "FluentValidation.AspNetCore": "8.0.100",
           "Swashbuckle.AspNetCore": "3.0.0",
+          "Web.Api.Common": "1.0.0",
           "Web.Api.Core": "1.0.0",
           "Web.Api.Infrastructure": "1.0.0"
         },
@@ -1225,8 +1284,15 @@
           "Web.Api.dll": {}
         }
       },
+      "Web.Api.Common/1.0.0": {
+        "runtime": {
+          "Web.Api.Common.dll": {}
+        }
+      },
       "Web.Api.Core/1.0.0": {
         "dependencies": {
+          "System.Drawing.Common": "4.7.0",
+          "Web.Api.Common": "1.0.0",
           "Autofac": "4.8.1"
         },
         "runtime": {
@@ -1245,6 +1311,7 @@
           "NLog": "4.5.10",
           "System.Configuration.ConfigurationManager": "4.5.0",
           "System.IdentityModel.Tokens.Jwt": "5.2.4",
+          "Web.Api.Common": "1.0.0",
           "Web.Api.Core": "1.0.0",
           "AutoMapper": "7.0.1"
         },
@@ -1659,6 +1726,13 @@
       "path": "microsoft.net.test.sdk/15.8.0",
       "hashPath": "microsoft.net.test.sdk.15.8.0.nupkg.sha512"
     },
+    "Microsoft.NETCore.Platforms/3.1.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-z7aeg8oHln2CuNulfhiLYxCVMPEwBl3rzicjvIX+4sUuCwvXw5oXQEtbiU2c0z4qYL5L3Kmx0mMA/+t/SbY67w==",
+      "path": "microsoft.netcore.platforms/3.1.0",
+      "hashPath": "microsoft.netcore.platforms.3.1.0.nupkg.sha512"
+    },
     "Microsoft.TestPlatform.ObjectModel/15.8.0": {
       "type": "package",
       "serviceable": true,
@@ -1679,6 +1753,13 @@
       "sha512": "sha512-fQnBHO9DgcmkC9dYSJoBqo6sH1VJwJprUHh8F3hbcRlxiQiBUuTntdk8tUwV490OqC2kQUrinGwZyQHTieuXRA==",
       "path": "microsoft.win32.primitives/4.0.1",
       "hashPath": "microsoft.win32.primitives.4.0.1.nupkg.sha512"
+    },
+    "Microsoft.Win32.SystemEvents/4.7.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-mtVirZr++rq+XCDITMUdnETD59XoeMxSpLRIII7JRI6Yj0LEDiO1pPn0ktlnIj12Ix8bfvQqQDMMIF9wC98oCA==",
+      "path": "microsoft.win32.systemevents/4.7.0",
+      "hashPath": "microsoft.win32.systemevents.4.7.0.nupkg.sha512"
     },
     "NLog/4.5.10": {
       "type": "package",
@@ -1819,6 +1900,13 @@
       "sha512": "sha512-6WVCczFZKXwpWpzd/iJkYnsmWTSFFiU24Xx/YdHXBcu+nFI/ehTgeqdJQFbtRPzbrO3KtRNjvkhtj4t5/WwWsA==",
       "path": "system.diagnostics.tracesource/4.0.0",
       "hashPath": "system.diagnostics.tracesource.4.0.0.nupkg.sha512"
+    },
+    "System.Drawing.Common/4.7.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-v+XbyYHaZjDfn0ENmJEV1VYLgGgCTx1gnfOBcppowbpOAriglYgGCvFCPr2EEZyBvXlpxbEsTwkOlInl107ahA==",
+      "path": "system.drawing.common/4.7.0",
+      "hashPath": "system.drawing.common.4.7.0.nupkg.sha512"
     },
     "System.IdentityModel.Tokens.Jwt/5.2.4": {
       "type": "package",
@@ -1996,6 +2084,11 @@
       "hashPath": "xunit.runner.visualstudio.2.3.1.nupkg.sha512"
     },
     "Web.Api/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Web.Api.Common/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

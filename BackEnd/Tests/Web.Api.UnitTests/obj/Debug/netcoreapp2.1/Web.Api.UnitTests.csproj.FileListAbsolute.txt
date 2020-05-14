@@ -46,3 +46,5 @@ C:\Ankh\myJump\BackEnd\Tests\Web.Api.UnitTests\obj\Debug\netcoreapp2.1\Web.Api.U
 C:\Ankh\myJump\BackEnd\Tests\Web.Api.UnitTests\obj\Debug\netcoreapp2.1\Web.Api.UnitTests.csproj.CopyComplete
 C:\Ankh\myJump\BackEnd\Tests\Web.Api.UnitTests\obj\Debug\netcoreapp2.1\Web.Api.UnitTests.dll
 C:\Ankh\myJump\BackEnd\Tests\Web.Api.UnitTests\obj\Debug\netcoreapp2.1\Web.Api.UnitTests.pdb
+C:\Ankh\myJump\BackEnd\Tests\Web.Api.UnitTests\bin\Debug\netcoreapp2.1\Web.Api.Common.dll
+C:\Ankh\myJump\BackEnd\Tests\Web.Api.UnitTests\bin\Debug\netcoreapp2.1\Web.Api.Common.pdb

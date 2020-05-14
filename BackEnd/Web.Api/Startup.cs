@@ -22,6 +22,8 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.IdentityModel.Tokens;
 using NLog;
 using Swashbuckle.AspNetCore.Swagger;
+using Web.Api.Common.Services;
+using Web.Api.Common.Services.Interface;
 using Web.Api.Core;
 using Web.Api.Extensions;
 using Web.Api.Infrastructure;
@@ -130,6 +132,10 @@ namespace Web.Api
 
             identityBuilder = new IdentityBuilder(identityBuilder.UserType, typeof(IdentityRole), identityBuilder.Services);
             identityBuilder.AddEntityFrameworkStores<AppIdentityDbContext>().AddDefaultTokenProviders();
+            services
+                .AddHttpContextAccessor()
+                .AddScoped<IUserContextFactory, HttpUserContextFactory>();
+
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1).AddFluentValidation(fv => fv.RegisterValidatorsFromAssemblyContaining<Startup>());
 

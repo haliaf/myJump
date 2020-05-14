@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.28010.2036
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29709.97
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Web.Api", "Web.Api\Web.Api.csproj", "{39CC82DB-F9FA-405D-914B-DC491F7408DB}"
 EndProject
@@ -17,7 +17,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Web.Api.Infrastructure.Unit
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Web.Api.IntegrationTests", "Tests\Web.Api.IntegrationTests\Web.Api.IntegrationTests.csproj", "{A79DF616-6858-4AD5-81AD-4DB80F94C673}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Web.Api.UnitTests", "Tests\Web.Api.UnitTests\Web.Api.UnitTests.csproj", "{407DD068-4816-4B9A-A6F9-608242927785}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Web.Api.UnitTests", "Tests\Web.Api.UnitTests\Web.Api.UnitTests.csproj", "{407DD068-4816-4B9A-A6F9-608242927785}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Web.Api.Common", "Web.Api.Common\Web.Api.Common.csproj", "{2D4B9E52-5F9D-4332-9D0F-D96ED78BD165}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -53,6 +55,10 @@ Global
 		{407DD068-4816-4B9A-A6F9-608242927785}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{407DD068-4816-4B9A-A6F9-608242927785}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{407DD068-4816-4B9A-A6F9-608242927785}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2D4B9E52-5F9D-4332-9D0F-D96ED78BD165}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2D4B9E52-5F9D-4332-9D0F-D96ED78BD165}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2D4B9E52-5F9D-4332-9D0F-D96ED78BD165}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2D4B9E52-5F9D-4332-9D0F-D96ED78BD165}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

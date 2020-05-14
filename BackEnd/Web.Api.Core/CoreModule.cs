@@ -10,6 +10,7 @@ namespace Web.Api.Core
         {
             builder.RegisterType<RegisterUserUseCase>().As<IRegisterUserUseCase>().InstancePerLifetimeScope();
             builder.RegisterType<LoginUseCase>().As<ILoginUseCase>().InstancePerLifetimeScope();
+            builder.RegisterType<MapEventUseCase>().As<IMapEventUseCase>().InstancePerLifetimeScope();
             builder.RegisterType<GetCurrentUserProfileUseCase>().As<IGetCurrentUserProfileUseCase>().InstancePerLifetimeScope();
             builder.RegisterType<ExchangeRefreshTokenUseCase>().As<IExchangeRefreshTokenUseCase>().InstancePerLifetimeScope();
             builder.RegisterType<AddUserProfileImagesUseCase>().As<IAddUserProfileImagesUseCase>().InstancePerLifetimeScope();

@@ -22,3 +22,6 @@ C:\Ankh\myJump\BackEnd\Web.Api.Core\bin\Debug\netcoreapp2.1\Web.Api.Core.pdb
 C:\Ankh\myJump\BackEnd\Web.Api.Core\obj\Debug\netcoreapp2.1\Web.Api.Core.csprojAssemblyReference.cache
 C:\Ankh\myJump\BackEnd\Web.Api.Core\obj\Debug\netcoreapp2.1\Web.Api.Core.dll
 C:\Ankh\myJump\BackEnd\Web.Api.Core\obj\Debug\netcoreapp2.1\Web.Api.Core.pdb
+C:\Ankh\myJump\BackEnd\Web.Api.Core\bin\Debug\netcoreapp2.1\Web.Api.Common.dll
+C:\Ankh\myJump\BackEnd\Web.Api.Core\bin\Debug\netcoreapp2.1\Web.Api.Common.pdb
+C:\Ankh\myJump\BackEnd\Web.Api.Core\obj\Debug\netcoreapp2.1\Web.Api.Core.csproj.CopyComplete

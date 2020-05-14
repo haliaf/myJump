@@ -37,3 +37,5 @@ C:\Ankh\myJump\BackEnd\Web.Api.Infrastructure\bin\Debug\netcoreapp2.1\Web.Api.Co
 C:\Ankh\myJump\BackEnd\Web.Api.Infrastructure\obj\Debug\netcoreapp2.1\Web.Api.Infrastructure.csproj.CopyComplete
 C:\Ankh\myJump\BackEnd\Web.Api.Infrastructure\obj\Debug\netcoreapp2.1\Web.Api.Infrastructure.dll
 C:\Ankh\myJump\BackEnd\Web.Api.Infrastructure\obj\Debug\netcoreapp2.1\Web.Api.Infrastructure.pdb
+C:\Ankh\myJump\BackEnd\Web.Api.Infrastructure\bin\Debug\netcoreapp2.1\Web.Api.Common.dll
+C:\Ankh\myJump\BackEnd\Web.Api.Infrastructure\bin\Debug\netcoreapp2.1\Web.Api.Common.pdb

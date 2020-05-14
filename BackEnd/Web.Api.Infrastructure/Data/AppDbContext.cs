@@ -32,6 +32,8 @@ namespace Web.Api.Infrastructure.Data
 
         public DbSet<RefreshToken> RefreshTokens { get; set; }
         public DbSet<User> Users { get; set; }
+        public DbSet<MapEvent> MapEvents { get; set; }
+        public DbSet<Coordinate> Coordinates { get; set; }
 
         public override int SaveChanges()
         {

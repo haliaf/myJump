@@ -52,3 +52,5 @@ C:\Ankh\myJump\BackEnd\Tests\Web.Api.IntegrationTests\obj\Debug\netcoreapp2.1\We
 C:\Ankh\myJump\BackEnd\Tests\Web.Api.IntegrationTests\obj\Debug\netcoreapp2.1\Web.Api.IntegrationTests.csproj.CopyComplete
 C:\Ankh\myJump\BackEnd\Tests\Web.Api.IntegrationTests\obj\Debug\netcoreapp2.1\Web.Api.IntegrationTests.dll
 C:\Ankh\myJump\BackEnd\Tests\Web.Api.IntegrationTests\obj\Debug\netcoreapp2.1\Web.Api.IntegrationTests.pdb
+C:\Ankh\myJump\BackEnd\Tests\Web.Api.IntegrationTests\bin\Debug\netcoreapp2.1\Web.Api.Common.dll
+C:\Ankh\myJump\BackEnd\Tests\Web.Api.IntegrationTests\bin\Debug\netcoreapp2.1\Web.Api.Common.pdb

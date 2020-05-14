@@ -1,0 +1,10 @@
+C:\Ankh\myJump\BackEnd\Web.Api.Common\bin\Debug\netcoreapp2.1\Web.Api.Common.deps.json
+C:\Ankh\myJump\BackEnd\Web.Api.Common\bin\Debug\netcoreapp2.1\Web.Api.Common.dll
+C:\Ankh\myJump\BackEnd\Web.Api.Common\obj\Debug\netcoreapp2.1\Web.Api.Common.AssemblyInfoInputs.cache
+C:\Ankh\myJump\BackEnd\Web.Api.Common\obj\Debug\netcoreapp2.1\Web.Api.Common.AssemblyInfo.cs
+C:\Ankh\myJump\BackEnd\Web.Api.Common\obj\Debug\netcoreapp2.1\Web.Api.Common.csprojAssemblyReference.cache
+C:\Ankh\myJump\BackEnd\Web.Api.Common\bin\Debug\netcoreapp2.1\Web.Api.Common.runtimeconfig.json
+C:\Ankh\myJump\BackEnd\Web.Api.Common\bin\Debug\netcoreapp2.1\Web.Api.Common.runtimeconfig.dev.json
+C:\Ankh\myJump\BackEnd\Web.Api.Common\bin\Debug\netcoreapp2.1\Web.Api.Common.pdb
+C:\Ankh\myJump\BackEnd\Web.Api.Common\obj\Debug\netcoreapp2.1\Web.Api.Common.dll
+C:\Ankh\myJump\BackEnd\Web.Api.Common\obj\Debug\netcoreapp2.1\Web.Api.Common.pdb

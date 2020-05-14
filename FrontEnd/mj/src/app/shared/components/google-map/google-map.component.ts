@@ -30,6 +30,7 @@ export class GoogleMapComponent implements OnInit {
 
         }
       };
+      var prevLatLngVal = null;
       var directionsService = null;
       var directionsDisplay;
       function initMaps` + this.mainIdCardElement + `() {
@@ -143,15 +144,17 @@ export class GoogleMapComponent implements OnInit {
        map_` + this.mainIdCardElement + `.addListener('click', function(e) {
         window.localStorage.setItem('name', e.latLng);
         placeMarker(e.latLng, map_` + this.mainIdCardElement + `);
-        Route(myLatLng, e.latLng);
+        if(prevLatLngVal != null){
+          console.log(prevLatLngVal);
+          window.localStorage.setItem('latLng', e.latLng);
+          window.localStorage.setItem('prevLatLng', e.latLng);
+          Route(prevLatLngVal, e.latLng);
+        }
+        prevLatLngVal = e.latLng;
     });
 
     function Route(cord1, cord2) {
-
-      cord1.lat
-      cord1.lng
-      var start = new google.maps.LatLng(cord1.lat, cord1.lng);
-      //var end = new google.maps.LatLng(18.211685, -67.141684);
+      var start = cord1;
       var end = cord2;
       var request = {
         origin: start,

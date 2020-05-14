@@ -12,12 +12,19 @@ import { Store } from '@ngrx/store';
 export class LobbyMainMapComponent implements OnInit {
   @Input()
   tabSelected: boolean;
+  createStarted = false;
   resizedImage: string;
   store$ = this._store.select(s => s.securityUserAccountStore);
   constructor(private _store: Store<IAppStore>) { }
 
   ngOnInit() {
 
+  }
+  onStartCreate(){
+    this.createStarted = true;
+  }
+  createMapLatLng(){
+    
   }
 
 }

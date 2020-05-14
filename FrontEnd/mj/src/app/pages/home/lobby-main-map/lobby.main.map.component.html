@@ -1,6 +1,12 @@
 <ng-container *ngIf="store$ | async; let store">
   <div *ngIf="tabSelected">
-  <dx-button type="normal" text="Создать" width="100%"></dx-button>
- <app-google-map userNavItemImg={{store.userprofileimagesresized}} mainIdCardElement="lobbymap"></app-google-map>
+    <div *ngIf="!createStarted" class="lobby-btn-wrap">
+      <dx-button type="normal" text="Создать" width="33%" (onClick)="onStartCreate()"></dx-button>
+    </div>
+    <div *ngIf="createStarted">
+      <dx-button type="normal" text="Подтвердить" width="33%" (onClick)="createMapLatLng()"></dx-button>
+ <app-google-map userNavItemImg={{store.userprofileimagesresized}} mainIdCardElement="lobbymap" ></app-google-map>
+    </div>
  </div>
 </ng-container>
+

@@ -11,6 +11,7 @@
 using System;
 using System.Reflection;
 
+[assembly: Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactoryContentRootAttribute("Web.Api.Common, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null", "C:\\Ankh\\myJump\\BackEnd\\Web.Api.Common", "Web.Api.Common.csproj", "0")]
 [assembly: Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactoryContentRootAttribute("Web.Api.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null", "C:\\Ankh\\myJump\\BackEnd\\Web.Api.Core", "Web.Api.Core.csproj", "0")]
 [assembly: Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactoryContentRootAttribute("Web.Api, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null", "C:\\Ankh\\myJump\\BackEnd\\Web.Api", "Web.Api.csproj", "0")]
 [assembly: Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactoryContentRootAttribute("Web.Api.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null", "C:\\Ankh\\myJump\\BackEnd\\Web.Api.Infrastructure", "Web.Api.Infrastructure.csproj", "0")]
