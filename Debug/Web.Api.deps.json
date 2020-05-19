@@ -30,6 +30,7 @@
           "Microsoft.AspNetCore.App": "2.1.1",
           "Microsoft.NETCore.App": "2.1.0",
           "Swashbuckle.AspNetCore": "3.0.0",
+          "Web.Api.Common": "1.0.0",
           "Web.Api.Core": "1.0.0",
           "Web.Api.Infrastructure": "1.0.0"
         },
@@ -1290,10 +1291,22 @@
           "System.Xml.XmlDocument": "4.3.0"
         }
       },
+      "Web.Api.Common/1.0.0": {
+        "dependencies": {
+          "Microsoft.AspNetCore.App": "2.1.1"
+        },
+        "runtime": {
+          "Web.Api.Common.dll": {}
+        },
+        "compile": {
+          "Web.Api.Common.dll": {}
+        }
+      },
       "Web.Api.Core/1.0.0": {
         "dependencies": {
           "Microsoft.AspNetCore.Hosting": "2.1.1",
           "System.Drawing.Common": "4.7.0",
+          "Web.Api.Common": "1.0.0",
           "Autofac": "4.8.1"
         },
         "runtime": {
@@ -1316,6 +1329,7 @@
           "NLog": "4.5.10",
           "System.Configuration.ConfigurationManager": "4.5.0",
           "System.IdentityModel.Tokens.Jwt": "5.2.4",
+          "Web.Api.Common": "1.0.0",
           "Web.Api.Core": "1.0.0",
           "AutoMapper": "7.0.1"
         },
@@ -4366,6 +4380,11 @@
       "sha512": "sha512-MYoTCP7EZ98RrANESW05J5ZwskKDoN0AuZ06ZflnowE50LTpbR5yRg3tHckTVm5j/m47stuGgCrCHWePyHS70Q==",
       "path": "system.xml.xmlserializer/4.3.0",
       "hashPath": "system.xml.xmlserializer.4.3.0.nupkg.sha512"
+    },
+    "Web.Api.Common/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
     },
     "Web.Api.Core/1.0.0": {
       "type": "project",

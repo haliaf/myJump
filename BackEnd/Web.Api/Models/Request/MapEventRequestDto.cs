@@ -6,7 +6,8 @@ namespace Web.Api.Models.Request
 {
     public class MapEventRequestDto
     {
-        public ICoordinate StartCoordinate { get; set; }
-        public ICoordinate EndCoordinate { get; set; }
+        public CoordinateDto StartCoordinate { get; set; }
+        public CoordinateDto EndCoordinate { get; set; }
     }
+
 }

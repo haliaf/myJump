@@ -24,6 +24,7 @@ import { LocationStrategy, HashLocationStrategy } from '@angular/common';
 import { AppSpinnerComponent, AppSpinnerModule } from './shared/components/app-spinner/app-spinner.component';
 import { SecurityUserAccountEffects } from './infrastruct/store/account-user/account-user..effects';
 import { UserMenuInfoComponent } from './shared/components/user-menu-info/user-menu-info.component';
+import { UserMapEffects } from './infrastruct/store/user-map/user-map.effects';
 
 
 export function tokenGetter() {
@@ -49,7 +50,7 @@ export function tokenGetter() {
     ReactiveFormsModule,
     StoreModule.forRoot(StoreMainModule.model),
     !environment.production ? StoreDevtoolsModule.instrument() : [],
-    EffectsModule.forRoot([ SecurityUserEffects, RegisterUserEffects, SecurityUserAccountEffects]),
+    EffectsModule.forRoot([ SecurityUserEffects, RegisterUserEffects, SecurityUserAccountEffects, UserMapEffects]),
     BrowserAnimationsModule,
     FontAwesomeModule
   ],

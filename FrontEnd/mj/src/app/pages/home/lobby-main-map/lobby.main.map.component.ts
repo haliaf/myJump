@@ -24,7 +24,7 @@ export class LobbyMainMapComponent implements OnInit {
     this.createStarted = true;
   }
   createMapLatLng(){
-    
+    console.log('worked');
   }
 
 }

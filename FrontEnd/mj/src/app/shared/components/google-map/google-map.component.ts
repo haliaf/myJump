@@ -31,6 +31,7 @@ export class GoogleMapComponent implements OnInit {
         }
       };
       var prevLatLngVal = null;
+      var startLatLngVal = null;
       var directionsService = null;
       var directionsDisplay;
       function initMaps` + this.mainIdCardElement + `() {
@@ -142,12 +143,13 @@ export class GoogleMapComponent implements OnInit {
        directionsDisplay.setMap(map_` + this.mainIdCardElement + `);
        //Здесь будем проверять директивой сверху
        map_` + this.mainIdCardElement + `.addListener('click', function(e) {
-        window.localStorage.setItem('name', e.latLng);
+         if(startLatLngVal == null){
+            window.localStorage.setItem('StartCoordinate', e.latLng);
+          }
+        startLatLngVal = e.latLng;
         placeMarker(e.latLng, map_` + this.mainIdCardElement + `);
         if(prevLatLngVal != null){
-          console.log(prevLatLngVal);
-          window.localStorage.setItem('latLng', e.latLng);
-          window.localStorage.setItem('prevLatLng', e.latLng);
+          window.localStorage.setItem('StopCoordinate', e.latLng);
           Route(prevLatLngVal, e.latLng);
         }
         prevLatLngVal = e.latLng;

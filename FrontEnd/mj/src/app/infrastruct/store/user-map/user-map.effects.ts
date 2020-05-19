@@ -1,14 +1,34 @@
 import { Injectable } from '@angular/core';
+import { Effect, Actions, ofType } from '@ngrx/effects';
+import { UserMapActionTypes, UserMapLoadCoordinateAction, UserMapLoadCoordinateCompleteAction } from './user-map.actions';
+import { UserMapService } from './setvice/user-map.service';
+import { mergeMap, map } from 'rxjs/operators';
+import { IUserMapModel } from './user-map.model';
+import { Store } from '@ngrx/store';
+import { IAppStore } from '../store-root.module';
 
 
 @Injectable()
 export class UserMapEffects {
-
+   private _infoDto: IUserMapModel;
    constructor(
-
+    private actions$: Actions,
+    private _ngRx: Store<IAppStore>,
+    private _srv: UserMapService,
   //    private _routeSrv: SiteRouteHelperService
-   ) { }
-
+   ) {
+    this._ngRx.select(m => m.userMapStore).subscribe((data: IUserMapModel) => this._infoDto = data);
+   }
+   @Effect()
+   loadUserCoordinate$ = this.actions$
+      .pipe(
+         ofType(UserMapActionTypes.LoadCoordinate),
+         mergeMap((action: UserMapLoadCoordinateAction) => this._srv.sendResponsLoadCoordinate(this._infoDto)),
+         map((response: any) => {
+            return new UserMapLoadCoordinateCompleteAction();
+         }),
+        // catchError(error => of(new ErrorOccurredAction(error)))
+      );
 
 
 

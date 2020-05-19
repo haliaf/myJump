@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Http;
+using System.Security.Claims;
 using Web.Api.Common.Services.Interface;
 
 namespace Web.Api.Common.Services
@@ -24,7 +25,7 @@ namespace Web.Api.Common.Services
 
         private IUserContext GetUserContextAsync()
         {
-            return new UserContext(_httpContextAccessor.HttpContext.User.Identity.Name);
+            return new UserContext(_httpContextAccessor.HttpContext.User.FindFirst(ClaimTypes.NameIdentifier).Value);
         }
     }
 }

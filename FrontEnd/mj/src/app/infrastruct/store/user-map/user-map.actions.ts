@@ -7,7 +7,18 @@ export enum UserMapActionTypes {
    LoadComplete = 'USER_MAP_LOAD_COMPLETE',
 
    ChangeResponse = 'USER_MAP_CHANGE',
-   ChangeResponseComplete = 'USER_MAP_CHANGE_COMPLETE'
+   ChangeResponseComplete = 'USER_MAP_CHANGE_COMPLETE',
+
+   LoadCoordinate = 'USER_MAP_LOAD_COOARDINATE',
+   LoadCoordinateComplete = 'USER_MAP_LOAD_COOARDINATE_COMPLETE',
+}
+
+export class UserMapLoadCoordinateAction implements Action {
+  readonly type = UserMapActionTypes.LoadCoordinate;
+}
+
+export class UserMapLoadCoordinateCompleteAction implements Action {
+  readonly type = UserMapActionTypes.LoadCoordinateComplete;
 }
 
 export class UserMapLoadAction implements Action {

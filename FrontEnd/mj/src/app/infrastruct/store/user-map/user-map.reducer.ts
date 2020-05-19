@@ -1,3 +1,4 @@
+import { ICoordinateDto, CoordinateHelper } from './../common/ICoordinate';
 
 
 
@@ -22,6 +23,24 @@ export function userMapReducer(state: IUserMapModel = initialState, action): IUs
       model.isLoading = false;
       return model;
 
+    case UserMapActionTypes.LoadCoordinate:
+      model.isLoading = true;
+      model.StartCoordinate = CoordinateHelper.createLocalStorageICoordinateDto(localStorage.getItem('StartCoordinate'));
+      model.EndCoordinate = CoordinateHelper.createLocalStorageICoordinateDto(localStorage.getItem('EndCoordinate'));
+      return model;
+
+    case UserMapActionTypes.LoadCoordinateComplete:
+      model.isLoading = false;
+      return model;
+
+    case UserMapActionTypes.ChangeResponse:
+      model.isLoading = true;
+      return model;
+
+    case UserMapActionTypes.ChangeResponseComplete:
+      model.isLoading = false;
+      return model;
+
     case UserMapActionTypes.ChangeResponse:
       const changeset: ChangeStoreRequest = action.payload;
       model = { ...state };
@@ -32,5 +51,9 @@ export function userMapReducer(state: IUserMapModel = initialState, action): IUs
 
     default:
       return model;
+
   }
+
+
 }
+
