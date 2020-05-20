@@ -2,6 +2,7 @@ import { Component, OnInit, Input } from '@angular/core';
 
 import { IAppStore } from 'src/app/infrastruct/store/store-root.module';
 import { Store } from '@ngrx/store';
+import { UserMapActionTypes, UserMapLoadAction, UserMapLoadCoordinateAction } from 'src/app/infrastruct/store/user-map/user-map.actions';
 
 @Component({
   selector: 'app-lobby-main-map',
@@ -24,7 +25,7 @@ export class LobbyMainMapComponent implements OnInit {
     this.createStarted = true;
   }
   createMapLatLng(){
-    console.log('worked');
+     this._store.dispatch(new UserMapLoadCoordinateAction());
   }
 
 }

@@ -9,7 +9,7 @@ using Web.Api.Presenters;
 
 namespace Web.Api.Controllers
 {
-  //  [Authorize(Policy = "ApiUser")]
+    [Authorize(Policy = "ApiUser")]
     [Route("api/[controller]")]
     [ApiController]
     public class MapController : ControllerBase

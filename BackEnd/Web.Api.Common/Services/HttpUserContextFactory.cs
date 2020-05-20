@@ -25,6 +25,7 @@ namespace Web.Api.Common.Services
 
         private IUserContext GetUserContextAsync()
         {
+            var a = _httpContextAccessor.HttpContext.User.FindFirst(ClaimTypes.NameIdentifier).Value;
             return new UserContext(_httpContextAccessor.HttpContext.User.FindFirst(ClaimTypes.NameIdentifier).Value);
         }
     }

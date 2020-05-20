@@ -1,7 +1,9 @@
+import { catchError } from 'rxjs/operators';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { ActivatedRouteSnapshot, CanActivate, Router } from '@angular/router';
 import { Observable, BehaviorSubject } from 'rxjs';
+import { error } from 'protractor';
 
 @Injectable()
 export class AuthService {
@@ -19,6 +21,8 @@ export class AuthService {
       localStorage.setItem('refreshToken', resp.refreshToken);
       localStorage.setItem('expiresGetDate', new Date().toString());
       this.token = resp.auth_token;
+    }, () => {
+      this.router.navigate(['/login-form']);
     });
   }
 
