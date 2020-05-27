@@ -4,6 +4,7 @@ using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using Web.Api.Core.Domain.Entities;
+using Web.Api.Core.Interfaces.Gateways.Repositories;
 using Web.Api.Core.Shared;
 
 
@@ -18,6 +19,7 @@ namespace Web.Api.Infrastructure.Data
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<User>(ConfigureUser);
+
         }
 
         public void ConfigureUser(EntityTypeBuilder<User> builder)
@@ -28,6 +30,7 @@ namespace Web.Api.Infrastructure.Data
 
             builder.Ignore(b => b.Email);
             builder.Ignore(b => b.PasswordHash);
+
         }
 
         public DbSet<RefreshToken> RefreshTokens { get; set; }
@@ -50,13 +53,16 @@ namespace Web.Api.Infrastructure.Data
         private void AddAuitInfo()
         {
             var entries = ChangeTracker.Entries().Where(x => x.Entity is BaseEntity && (x.State == EntityState.Added || x.State == EntityState.Modified));
+           // var userModified = this._userRepository.GetCurrentUser().GetAwaiter().GetResult();
             foreach (var entry in entries)
             {
                 if (entry.State == EntityState.Added)
                 {
                     ((BaseEntity)entry.Entity).Created = DateTime.UtcNow;
+                  //  ((BaseEntity)entry.Entity).CreatedUser = userModified;
                 }
                 ((BaseEntity)entry.Entity).Modified = DateTime.UtcNow;
+              //  ((BaseEntity)entry.Entity).ModifiedUser = userModified;
             }
         }
     }

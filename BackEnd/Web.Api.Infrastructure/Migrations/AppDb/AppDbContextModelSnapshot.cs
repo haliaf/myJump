@@ -27,11 +27,15 @@ namespace Web.Api.Infrastructure.Migrations.AppDb
 
                     b.Property<DateTime>("Created");
 
+                    b.Property<int?>("CreatedUserId");
+
                     b.Property<decimal>("Latitude");
 
                     b.Property<decimal>("Longitude");
 
                     b.Property<DateTime>("Modified");
+
+                    b.Property<int?>("ModifiedUserId");
 
                     b.HasKey("Id");
 
@@ -46,9 +50,13 @@ namespace Web.Api.Infrastructure.Migrations.AppDb
 
                     b.Property<DateTime>("Created");
 
+                    b.Property<int?>("CreatedUserId");
+
                     b.Property<DateTime?>("EndMapEvent");
 
                     b.Property<DateTime>("Modified");
+
+                    b.Property<int?>("ModifiedUserId");
 
                     b.Property<int?>("StartCoordinateId");
 
@@ -77,9 +85,13 @@ namespace Web.Api.Infrastructure.Migrations.AppDb
 
                     b.Property<DateTime>("Created");
 
+                    b.Property<int?>("CreatedUserId");
+
                     b.Property<DateTime>("Expires");
 
                     b.Property<DateTime>("Modified");
+
+                    b.Property<int?>("ModifiedUserId");
 
                     b.Property<string>("RemoteIpAddress");
 
@@ -102,6 +114,8 @@ namespace Web.Api.Infrastructure.Migrations.AppDb
 
                     b.Property<DateTime>("Created");
 
+                    b.Property<int?>("CreatedUserId");
+
                     b.Property<string>("FirstName");
 
                     b.Property<string>("IdentityId");
@@ -109,6 +123,8 @@ namespace Web.Api.Infrastructure.Migrations.AppDb
                     b.Property<string>("LastName");
 
                     b.Property<DateTime>("Modified");
+
+                    b.Property<int?>("ModifiedUserId");
 
                     b.Property<string>("UserName");
 

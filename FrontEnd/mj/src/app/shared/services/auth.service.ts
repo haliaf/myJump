@@ -21,9 +21,7 @@ export class AuthService {
       localStorage.setItem('refreshToken', resp.refreshToken);
       localStorage.setItem('expiresGetDate', new Date().toString());
       this.token = resp.auth_token;
-    }, () => {
-      this.router.navigate(['/login-form']);
-    });
+    }, err => this.logOut());
   }
 
   logIn(email: string, password: string) {
@@ -53,6 +51,9 @@ export class AuthService {
 
   public get isExpiredUserToken(): boolean {
     const expiresGetDate = new Date(localStorage.getItem('expiresGetDate'));
+    if(!expiresGetDate){
+      return false;
+    }
     const expiresIn = +localStorage.getItem('expiresIn');
     const currentDate = new Date();
     currentDate.setSeconds(currentDate.getSeconds() - expiresIn + 120);

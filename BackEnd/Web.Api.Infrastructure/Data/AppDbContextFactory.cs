@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using Web.Api.Core.Interfaces.Gateways.Repositories;
 using Web.Api.Infrastructure.Shared;
 
 

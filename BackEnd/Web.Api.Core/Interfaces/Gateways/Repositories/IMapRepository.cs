@@ -1,15 +1,15 @@
 ﻿using System.Threading.Tasks;
 using Web.Api.Core.Domain.Entities;
 using Web.Api.Core.Dto.GatewayResponses.Repositories;
-
+using Web.Api.Core.Interfaces.Shared;
 
 namespace Web.Api.Core.Interfaces.Gateways.Repositories
 {
-    public interface IUserRepository  : IRepository<User>
+    public interface IMapRepository : IRepository<MapEvent>
     {
-        Task<CreateUserResponse> Create(string firstName, string lastName, string email, string userName, string password);
-        Task<AddUserProfileImagesRepositoryResponse> AddUserProfileImages(string imagesBase64, string userName);
-        Task<User> FindByName(string userName);
-        Task<bool> CheckPassword(User user, string password);
+        Task<CreateMapEventResponse> Create(ICoordinate startCoordinate, ICoordinate endCoordinate);
+        //временно получение всего и вся
+        Task<GetAllMapEventResponse> GetAll();
+
     }
 }

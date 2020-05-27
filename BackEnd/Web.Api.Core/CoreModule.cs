@@ -8,6 +8,7 @@ namespace Web.Api.Core
     {
         protected override void Load(ContainerBuilder builder)
         {
+            builder.RegisterType<GetMapEventUseCase>().As<IGetMapEventUseCase>().InstancePerLifetimeScope();
             builder.RegisterType<RegisterUserUseCase>().As<IRegisterUserUseCase>().InstancePerLifetimeScope();
             builder.RegisterType<LoginUseCase>().As<ILoginUseCase>().InstancePerLifetimeScope();
             builder.RegisterType<MapEventUseCase>().As<IMapEventUseCase>().InstancePerLifetimeScope();

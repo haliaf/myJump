@@ -1,62 +1,51 @@
-﻿using System.Linq;
+﻿using System;
+using System.Collections;
+using System.Linq;
 using System.Threading.Tasks;
 using AutoMapper;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
 using Web.Api.Core.Domain.Entities;
 using Web.Api.Core.Dto;
 using Web.Api.Core.Dto.GatewayResponses.Repositories;
 using Web.Api.Core.Interfaces.Gateways.Repositories;
+using Web.Api.Core.Interfaces.Shared;
 using Web.Api.Core.Specifications;
 using Web.Api.Infrastructure.Identity;
 
 
 namespace Web.Api.Infrastructure.Data.Repositories
 {
-    internal sealed class UserRepository : EfRepository<User>, IUserRepository
+    internal sealed class MapRepository : EfRepository<MapEvent>, IMapRepository
     {
         private readonly UserManager<AppUser> _userManager;
+        private readonly ICoordinateRepository _coordinateRepository;
         private readonly IMapper _mapper;
         private readonly IHttpContextAccessor _httpContextAccessor;
 
-        public UserRepository(UserManager<AppUser> userManager, IMapper mapper, AppDbContext appDbContext, IHttpContextAccessor httpContextAccessor) : base(appDbContext)
+        public MapRepository(UserManager<AppUser> userManager, IMapper mapper, AppDbContext appDbContext, ICoordinateRepository coordinateRepository, IHttpContextAccessor httpContextAccessor) : base(appDbContext)
         {
             _userManager = userManager;
+            _coordinateRepository = coordinateRepository;
             _mapper = mapper;
             _httpContextAccessor = httpContextAccessor;
         }
-       
-        public async Task<CreateUserResponse> Create(string firstName, string lastName, string email, string userName, string password)
-        {
-            var appUser = new AppUser {Email = email, UserName = userName};
-            var identityResult = await _userManager.CreateAsync(appUser, password);
 
-            if (!identityResult.Succeeded) return new CreateUserResponse(appUser.Id, false,identityResult.Errors.Select(e => new Error(e.Code, e.Description)));
-          
-            var user = new User(firstName, lastName, appUser.Id, appUser.UserName);
-            _appDbContext.Users.Add(user);
+        public async Task<CreateMapEventResponse> Create(ICoordinate startCoordinate, ICoordinate endCoordinate)
+        {
+            var start = await _coordinateRepository.Create(startCoordinate);
+            var end = await _coordinateRepository.Create(endCoordinate);
+            var addMapEvent = new MapEvent {StartCoordinate = start.coordinate, StopCoordinate = end.coordinate };
+            _appDbContext.MapEvents.Add(addMapEvent);
             await _appDbContext.SaveChangesAsync();
-
-            return new CreateUserResponse(appUser.Id, identityResult.Succeeded, identityResult.Succeeded ? null : identityResult.Errors.Select(e => new Error(e.Code, e.Description)));
+            return new CreateMapEventResponse(true, null);
         }
 
-        public async Task<User> FindByName(string userName)
+        public async Task<GetAllMapEventResponse> GetAll()
         {
-            var appUser = await _userManager.FindByNameAsync(userName);
-            return appUser == null ? null : _mapper.Map(appUser, await GetSingleBySpec(new UserSpecification(appUser.Id)));
-        }
-
-        public async Task<bool> CheckPassword(User user, string password)
-        {
-            return await _userManager.CheckPasswordAsync(_mapper.Map<AppUser>(user), password);
-        }
-
-        public async Task<AddUserProfileImagesRepositoryResponse> AddUserProfileImages(string imagesPath, string userName)
-        {
-            var user = _appDbContext.Users.Single(m => m.UserName == userName);
-            user.AddUserProfileImages(imagesPath);
-            await _appDbContext.SaveChangesAsync();
-            return new AddUserProfileImagesRepositoryResponse(imagesPath);
+            var retEnum =  _appDbContext.MapEvents.Include(p => p.StartCoordinate).Where(m => m.Id > 0).ToArray().AsEnumerable();
+            return await Task.FromResult<GetAllMapEventResponse>(new GetAllMapEventResponse(retEnum, true, null)); 
         }
     }
 }

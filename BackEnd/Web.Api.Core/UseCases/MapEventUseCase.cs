@@ -13,25 +13,23 @@ namespace Web.Api.Core.UseCases
 {
     public sealed class MapEventUseCase : IMapEventUseCase
     {
-        private readonly IUserRepository _userRepository;
-        private readonly IJwtFactory _jwtFactory;
-        private readonly ITokenFactory _tokenFactory;
-        private readonly IUserContextFactory _userContextFactory;
+        private readonly ICoordinateRepository _coordinateRepository;
+        private readonly IMapRepository _mapRepository;
 
-        public MapEventUseCase(IUserRepository userRepository, IJwtFactory jwtFactory, ITokenFactory tokenFactory, IUserContextFactory userContextFactory)
+        public MapEventUseCase(ICoordinateRepository coordinateRepository, IMapRepository mapRepository)
         {
-            _userRepository = userRepository;
-            _jwtFactory = jwtFactory;
-            _tokenFactory = tokenFactory;
-            _userContextFactory = userContextFactory;
+            _coordinateRepository = coordinateRepository;
+            _mapRepository = mapRepository;
         }
 
 
         public async Task<bool> Handle(MapEventUseCaseRequest message, IOutputPort<MapEventUseCaseResponse> outputPort)
         {
-            var userName =_userContextFactory.CreateUserContext().CurrentUserName;
-             outputPort.Handle(new MapEventUseCaseResponse(new[] { new Error("login_failure", "Invalid username or password.") }));
-            return false;
+            var startCoordinate =  await _coordinateRepository.Create(message.StartCoordinate);
+            var endCoordinate = await _coordinateRepository.Create(message.EndCoordinate);
+            await _mapRepository.Create(startCoordinate.coordinate, endCoordinate.coordinate);
+            outputPort.Handle(new MapEventUseCaseResponse(null, true, "Map Event Create Complete"));
+            return true;
         }
     }
 }

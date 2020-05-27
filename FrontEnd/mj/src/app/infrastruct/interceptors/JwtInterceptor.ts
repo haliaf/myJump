@@ -18,6 +18,7 @@ export class JwtInterceptor implements HttpInterceptor {
         }
         if (this.isNeedRefreshToken()){
           this.authService.refreshToken();
+          localStorage.removeItem('expiresGetDate');
         }
         if (currentUserToken) {
             request = request.clone({

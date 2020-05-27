@@ -5,6 +5,7 @@ import { AccountUserService } from './service/security-user-account.service';
 import { SecurityUserAccountActionTypes, SecurityUserAccountLoadAction, SecurityUserAccountLoadCompleteAction } from './account-user.actions';
 import { IUserAccountDto } from './model/IUserAccountDto';
 import { of } from 'rxjs';
+import { Router } from '@angular/router';
 
 
 @Injectable()
@@ -13,7 +14,7 @@ export class SecurityUserAccountEffects {
    constructor(
       private actions$: Actions,
       private _srv: AccountUserService,
-  //    private _routeSrv: SiteRouteHelperService
+      private router: Router
    ) { }
 
    @Effect()
@@ -26,7 +27,7 @@ export class SecurityUserAccountEffects {
                 return new SecurityUserAccountLoadCompleteAction(a);
             }),
             catchError(error => of(
-             console.log(error)
+              this.router.navigate(['/login-form'])
             )),
           );
         })

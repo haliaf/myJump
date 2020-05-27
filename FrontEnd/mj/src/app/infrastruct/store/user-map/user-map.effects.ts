@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Effect, Actions, ofType } from '@ngrx/effects';
-import { UserMapActionTypes, UserMapLoadCoordinateAction, UserMapLoadCoordinateCompleteAction } from './user-map.actions';
+import { UserMapActionTypes, UserMapLoadCoordinateAction, UserMapLoadCoordinateCompleteAction, UserMapLoadAction, UserMapLoadCpmpleteAction } from './user-map.actions';
 import { UserMapService } from './setvice/user-map.service';
 import { mergeMap, map } from 'rxjs/operators';
 import { IUserMapModel } from './user-map.model';
@@ -30,7 +30,16 @@ export class UserMapEffects {
         // catchError(error => of(new ErrorOccurredAction(error)))
       );
 
-
+      @Effect()
+      loadUserMap$ = this.actions$
+         .pipe(
+            ofType(UserMapActionTypes.Load),
+            mergeMap((action: UserMapLoadAction) => this._srv.sendResponsLoadCoordinate(this._infoDto)),
+            map((response: any) => {
+               return new UserMapLoadCpmpleteAction();
+            }),
+           // catchError(error => of(new ErrorOccurredAction(error)))
+         );
 
 
 }

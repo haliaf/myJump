@@ -19,7 +19,10 @@ export class UserMapService {
     const urlPath = environment.apiUrl + '/main/api/Map/createMapEvent';
     return this.http.post<any>(urlPath, dto);
   }
-
+  getMapEvents(): Observable<any> {
+    const urlPath = environment.apiUrl + '/main/api/Map/createMapEvent';
+    return this.http.post<any>(urlPath, dto);
+  }
   }
 
 

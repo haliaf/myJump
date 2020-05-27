@@ -1,3 +1,4 @@
+import { ICoordinateDto } from './../../../infrastruct/store/common/ICoordinate';
 import { Component, OnInit, Renderer2, Inject, Input } from '@angular/core';
 import { DOCUMENT } from '@angular/common';
 import { Store } from '@ngrx/store';
@@ -12,6 +13,9 @@ import { IAppStore } from 'src/app/infrastruct/store/store-root.module';
 export class GoogleMapComponent implements OnInit {
   @Input()
   userNavItemImg: string;
+
+  @Input()
+  startEventDotted?: ICoordinateDto[];
 
   @Input()
   mainIdCardElement: string;
@@ -133,6 +137,8 @@ export class GoogleMapComponent implements OnInit {
            }
          ]
        });
+       ` + this.calculateStartDotted() + `
+
          var marker = new google.maps.Marker({
          position: myLatLng,
          map: map_` + this.mainIdCardElement + `,
@@ -187,5 +193,14 @@ export class GoogleMapComponent implements OnInit {
     textScript.src = 'https://maps.googleapis.com/maps/api/js?key=AIzaSyDXKQwnYtbILKa-SAK4IZypJivKWTBKw38&callback=initMaps' + this.mainIdCardElement;
     this.renderer2.appendChild(this.document.body, textScript);
   }
-
+  calculateStartDotted(){
+    let cretedDotted =  '';
+    if(!!this.startEventDotted){
+    this.startEventDotted.forEach(element => {
+      let latLng = JSON.stringify(element);
+      cretedDotted = cretedDotted +  `placeMarker(` + latLng + `, map_` + this.mainIdCardElement + `);`;
+    });
+  }
+    return cretedDotted;
+  }
 }
