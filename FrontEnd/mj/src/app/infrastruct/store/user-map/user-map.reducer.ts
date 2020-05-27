@@ -20,6 +20,7 @@ export function userMapReducer(state: IUserMapModel = initialState, action): IUs
 
     case UserMapActionTypes.LoadComplete:
       const response = action as UserMapLoadCpmpleteAction;
+      model.activeMapEvents = response.payload.mapEvents;
       model.isLoading = false;
       return model;
 

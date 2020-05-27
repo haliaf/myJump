@@ -1,5 +1,6 @@
 import { Action } from '@ngrx/store';
 import { ChangeStoreRequest } from 'src/app/shared/common/ChangeStoreRequest';
+import { IMapEvent } from '../common/IMapEvent';
 
 
 export enum UserMapActionTypes {
@@ -27,6 +28,10 @@ export class UserMapLoadAction implements Action {
 
 export class UserMapLoadCpmpleteAction implements Action {
   readonly type = UserMapActionTypes.LoadComplete;
+  payload: any;
+  constructor(payload: any) {
+    this.payload = payload;
+  }
 }
 
 export class UserMapChangeAction implements Action {

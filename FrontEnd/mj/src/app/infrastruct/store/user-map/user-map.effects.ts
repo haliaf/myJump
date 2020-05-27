@@ -34,9 +34,9 @@ export class UserMapEffects {
       loadUserMap$ = this.actions$
          .pipe(
             ofType(UserMapActionTypes.Load),
-            mergeMap((action: UserMapLoadAction) => this._srv.sendResponsLoadCoordinate(this._infoDto)),
+            mergeMap((action: UserMapLoadAction) => this._srv.getMapEvents()),
             map((response: any) => {
-               return new UserMapLoadCpmpleteAction();
+               return new UserMapLoadCpmpleteAction(response);
             }),
            // catchError(error => of(new ErrorOccurredAction(error)))
          );

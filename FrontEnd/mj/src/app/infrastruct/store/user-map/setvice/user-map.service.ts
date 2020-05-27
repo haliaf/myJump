@@ -20,8 +20,8 @@ export class UserMapService {
     return this.http.post<any>(urlPath, dto);
   }
   getMapEvents(): Observable<any> {
-    const urlPath = environment.apiUrl + '/main/api/Map/createMapEvent';
-    return this.http.post<any>(urlPath, dto);
+    const urlPath = environment.apiUrl + '/main/api/Map/getMapEvent';
+    return this.http.get<any>(urlPath);
   }
   }
 

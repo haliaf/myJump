@@ -44,7 +44,10 @@ namespace Web.Api.Infrastructure.Data.Repositories
 
         public async Task<GetAllMapEventResponse> GetAll()
         {
-            var retEnum =  _appDbContext.MapEvents.Include(p => p.StartCoordinate).Where(m => m.Id > 0).ToArray().AsEnumerable();
+            var retEnum =  _appDbContext.MapEvents
+                                        .Include(s=> s.StopCoordinate)
+                                        .Include(p => p.StartCoordinate)
+                                        .Where(m => m.Id > 0).ToArray().AsEnumerable();
             return await Task.FromResult<GetAllMapEventResponse>(new GetAllMapEventResponse(retEnum, true, null)); 
         }
     }

@@ -1,3 +1,5 @@
+import { element } from 'protractor';
+import { IMapEvent } from './../../../infrastruct/store/common/IMapEvent';
 import { ICoordinateDto } from './../../../infrastruct/store/common/ICoordinate';
 import { Component, OnInit, Renderer2, Inject, Input } from '@angular/core';
 import { DOCUMENT } from '@angular/common';
@@ -15,7 +17,7 @@ export class GoogleMapComponent implements OnInit {
   userNavItemImg: string;
 
   @Input()
-  startEventDotted?: ICoordinateDto[];
+  startEventDotted?: IMapEvent[];
 
   @Input()
   mainIdCardElement: string;
@@ -178,12 +180,29 @@ export class GoogleMapComponent implements OnInit {
       });
     }
 
-    function placeMarker(position, map) {
+    function placeMarkerRouteEvent(position, position2, map, labelText) {
       var marker = new google.maps.Marker({
           position: position,
-          map: map
+          map: map,
+          label: { color: '#00aaff', fontWeight: 'bold', fontSize: '14px', text: labelText }
       });
-      map.panTo(position);
+      marker.addListener('click', function() {
+        Route(position,position2);
+        map.setCenter(marker.getPosition());
+      });
+      //map.panTo(position);
+  }
+
+    function placeMarker(position, map, labelText) {
+      var marker = new google.maps.Marker({
+          position: position,
+          map: map,
+          label: { color: '#00aaff', fontWeight: 'bold', fontSize: '14px', text: labelText }
+      });
+      marker.addListener('click', function() {
+        map.setCenter(marker.getPosition());
+      });
+      //map.panTo(position);
   }
      }
   }`;
@@ -195,10 +214,12 @@ export class GoogleMapComponent implements OnInit {
   }
   calculateStartDotted(){
     let cretedDotted =  '';
+    const text = "'гонко'";
     if(!!this.startEventDotted){
     this.startEventDotted.forEach(element => {
-      let latLng = JSON.stringify(element);
-      cretedDotted = cretedDotted +  `placeMarker(` + latLng + `, map_` + this.mainIdCardElement + `);`;
+      let latLng = element.startCoordinate;
+      let latLng2 = element.stopCoordinate;
+      cretedDotted = cretedDotted +  `placeMarkerRouteEvent({lat: `+latLng.latitude+`, lng: `+latLng.longitude+`}, {lat: `+latLng2.latitude+`, lng: `+latLng2.longitude+`}, map_` + this.mainIdCardElement + `,` + text+`);`;
     });
   }
     return cretedDotted;

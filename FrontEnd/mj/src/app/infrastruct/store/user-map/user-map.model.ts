@@ -4,7 +4,7 @@ import { IMapEvent } from '../common/IMapEvent';
 export interface IUserMapModel extends IUserMapModelInfoDto {
   isLoading: boolean;
   istabselected?: string;
-  activeMapEvents: IMapEvent;
+  activeMapEvents: IMapEvent[];
 }
 
 export interface IUserMapModelInfoDto {
