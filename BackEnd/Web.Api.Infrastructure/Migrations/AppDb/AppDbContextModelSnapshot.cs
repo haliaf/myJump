@@ -48,11 +48,13 @@ namespace Web.Api.Infrastructure.Migrations.AppDb
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+                    b.Property<int?>("CreateUserId");
+
                     b.Property<DateTime>("Created");
 
                     b.Property<int?>("CreatedUserId");
 
-                    b.Property<DateTime?>("EndMapEvent");
+                    b.Property<DateTime?>("EndDateMapEvent");
 
                     b.Property<DateTime>("Modified");
 
@@ -60,19 +62,15 @@ namespace Web.Api.Infrastructure.Migrations.AppDb
 
                     b.Property<int?>("StartCoordinateId");
 
-                    b.Property<DateTime?>("StartMapEvent");
+                    b.Property<DateTime?>("StartDateMapEvent");
 
                     b.Property<int?>("StopCoordinateId");
-
-                    b.Property<int?>("UserId");
 
                     b.HasKey("Id");
 
                     b.HasIndex("StartCoordinateId");
 
                     b.HasIndex("StopCoordinateId");
-
-                    b.HasIndex("UserId");
 
                     b.ToTable("MapEvents");
                 });
@@ -135,6 +133,33 @@ namespace Web.Api.Infrastructure.Migrations.AppDb
                     b.ToTable("Users");
                 });
 
+            modelBuilder.Entity("Web.Api.Core.Domain.Entities.UserMapEvent", b =>
+                {
+                    b.Property<int>("UserId");
+
+                    b.Property<int>("MapEventId");
+
+                    b.Property<DateTime>("Created");
+
+                    b.Property<int?>("CreatedUserId");
+
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<DateTime>("Modified");
+
+                    b.Property<int?>("ModifiedUserId");
+
+                    b.HasKey("UserId", "MapEventId");
+
+                    b.HasAlternateKey("Id");
+
+                    b.HasIndex("MapEventId");
+
+                    b.ToTable("UserMapEvents");
+                });
+
             modelBuilder.Entity("Web.Api.Core.Domain.Entities.MapEvent", b =>
                 {
                     b.HasOne("Web.Api.Core.Domain.Entities.Coordinate", "StartCoordinate")
@@ -144,16 +169,25 @@ namespace Web.Api.Infrastructure.Migrations.AppDb
                     b.HasOne("Web.Api.Core.Domain.Entities.Coordinate", "StopCoordinate")
                         .WithMany()
                         .HasForeignKey("StopCoordinateId");
-
-                    b.HasOne("Web.Api.Core.Domain.Entities.User", "User")
-                        .WithMany("MapEvents")
-                        .HasForeignKey("UserId");
                 });
 
             modelBuilder.Entity("Web.Api.Core.Domain.Entities.RefreshToken", b =>
                 {
                     b.HasOne("Web.Api.Core.Domain.Entities.User")
                         .WithMany("RefreshTokens")
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade);
+                });
+
+            modelBuilder.Entity("Web.Api.Core.Domain.Entities.UserMapEvent", b =>
+                {
+                    b.HasOne("Web.Api.Core.Domain.Entities.MapEvent", "MapEvent")
+                        .WithMany("CurrentUsers")
+                        .HasForeignKey("MapEventId")
+                        .OnDelete(DeleteBehavior.Cascade);
+
+                    b.HasOne("Web.Api.Core.Domain.Entities.User", "User")
+                        .WithMany("MapEvents")
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade);
                 });

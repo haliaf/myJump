@@ -1,4 +1,5 @@
 <ng-container *ngIf="store$ | async; let store">
+  <dx-button type="normal" text="Подтвердить" width="33%" (onClick)="acceptToMapEvent()"></dx-button>
   <dx-tab-panel
     [selectedIndex]="1"
     [animationEnabled]="true"

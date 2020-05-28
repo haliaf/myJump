@@ -15,14 +15,12 @@ namespace Web.Api.Core.Domain.Entities
         public string Email { get; private set; }
         public string UserProfileImages { get; private set; }
         public string PasswordHash { get; private set; }
-        public ICollection<MapEvent> MapEvents { get; private set; }
+        public  ICollection<UserMapEvent> MapEvents { get; set; }
 
         private readonly List<RefreshToken> _refreshTokens = new List<RefreshToken>();
         public IReadOnlyCollection<RefreshToken> RefreshTokens => _refreshTokens.AsReadOnly();
 
-        internal User() {
-            MapEvents = new List<MapEvent>();
-        }
+
 
         internal User(string firstName, string lastName, string identityId,string userName)
         {

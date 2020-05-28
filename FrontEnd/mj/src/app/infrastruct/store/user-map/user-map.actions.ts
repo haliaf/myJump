@@ -7,13 +7,21 @@ export enum UserMapActionTypes {
    Load = 'USER_MAP_LOAD',
    LoadComplete = 'USER_MAP_LOAD_COMPLETE',
 
+   ConnectMapEventResponse = 'CONNECT_MAP_EVENT_RESPONSE',
+   ConnectMapEventResponseComplete = 'CONNECT_MAP_EVENT_RESPONSE_COMPLETE',
+
    ChangeResponse = 'USER_MAP_CHANGE',
    ChangeResponseComplete = 'USER_MAP_CHANGE_COMPLETE',
 
    LoadCoordinate = 'USER_MAP_LOAD_COOARDINATE',
    LoadCoordinateComplete = 'USER_MAP_LOAD_COOARDINATE_COMPLETE',
 }
-
+export class UserMapConnectMapEventResponseCompleteAction implements Action {
+  readonly type = UserMapActionTypes.ConnectMapEventResponseComplete;
+}
+export class UserMapConnectMapEventResponseAction implements Action {
+  readonly type = UserMapActionTypes.ConnectMapEventResponse;
+}
 export class UserMapLoadCoordinateAction implements Action {
   readonly type = UserMapActionTypes.LoadCoordinate;
 }

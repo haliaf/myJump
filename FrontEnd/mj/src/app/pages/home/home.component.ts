@@ -27,5 +27,8 @@ export class HomeComponent extends ViewInputBlock<IUserMapModel> implements OnIn
     let titleTab =  e.addedItems[0].title;
     this.propOnChange(titleTab, 'istabselected');
   }
+  acceptToMapEvent(){
+    this._store.dispatch(new UserMapLoadAction());
+  }
 }
 

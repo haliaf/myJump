@@ -15,11 +15,12 @@ namespace Web.Api.Core.Dto.UseCaseResponses
             Errors = response.Errors;
             mapEvents = response.StartMapEventsCoordinate.Select( m=> new MapEventDto
             {
-                EndMapEvent = m.EndMapEvent,
+                EndMapEvent = m.EndDateMapEvent,
                 StartCoordinate = m.StartCoordinate,
-                StartMapEvent = m.StartMapEvent,
+                StartMapEvent = m.StartDateMapEvent,
                 StopCoordinate = m.StopCoordinate,
-                UserId = 1
+                UserId = 1,
+                Id = m.Id
             }).ToArray();
         }
 

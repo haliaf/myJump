@@ -18,7 +18,18 @@ namespace Web.Api.Infrastructure.Data
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            modelBuilder.Entity<UserMapEvent>()
+                        .HasKey(bc => new { bc.UserId, bc.MapEventId });
+            modelBuilder.Entity<UserMapEvent>()
+                .HasOne(bc => bc.User)
+                .WithMany(b => b.MapEvents)
+                .HasForeignKey(bc => bc.UserId);
+            modelBuilder.Entity<UserMapEvent>()
+                .HasOne(bc => bc.MapEvent)
+                .WithMany(c => c.CurrentUsers)
+                .HasForeignKey(bc => bc.MapEventId);
             modelBuilder.Entity<User>(ConfigureUser);
+
 
         }
 
@@ -33,6 +44,7 @@ namespace Web.Api.Infrastructure.Data
 
         }
 
+        public DbSet<UserMapEvent> UserMapEvents { get; set; }
         public DbSet<RefreshToken> RefreshTokens { get; set; }
         public DbSet<User> Users { get; set; }
         public DbSet<MapEvent> MapEvents { get; set; }

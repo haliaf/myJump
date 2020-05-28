@@ -17,5 +17,6 @@ namespace Web.Api.Models.Dto
         public ICoordinate StartCoordinate { get; set; }
         [DataMember]
         public ICoordinate StopCoordinate { get; set; }
+        public int Id { get; set; }
     }
 }
