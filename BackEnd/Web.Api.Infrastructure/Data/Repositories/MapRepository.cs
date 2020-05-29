@@ -6,6 +6,7 @@ using AutoMapper;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using Web.Api.Common.Services.Interface;
 using Web.Api.Core.Domain.Entities;
 using Web.Api.Core.Dto;
 using Web.Api.Core.Dto.GatewayResponses.Repositories;
@@ -22,15 +23,18 @@ namespace Web.Api.Infrastructure.Data.Repositories
         private readonly UserManager<AppUser> _userManager;
         private readonly ICoordinateRepository _coordinateRepository;
         private readonly IMapper _mapper;
-        private readonly IHttpContextAccessor _httpContextAccessor;
+        private readonly IUserRepository _userRepository;
 
-        public MapRepository(UserManager<AppUser> userManager, IMapper mapper, AppDbContext appDbContext, ICoordinateRepository coordinateRepository, IHttpContextAccessor httpContextAccessor) : base(appDbContext)
+        public MapRepository(IUserRepository userRepository, UserManager<AppUser> userManager, IMapper mapper, AppDbContext appDbContext, ICoordinateRepository coordinateRepository, IHttpContextAccessor httpContextAccessor) : base(appDbContext)
         {
             _userManager = userManager;
             _coordinateRepository = coordinateRepository;
             _mapper = mapper;
-            _httpContextAccessor = httpContextAccessor;
+            _userRepository = userRepository;
         }
+
+
+ 
 
         public async Task<CreateMapEventResponse> Create(ICoordinate startCoordinate, ICoordinate endCoordinate)
         {
@@ -49,6 +53,20 @@ namespace Web.Api.Infrastructure.Data.Repositories
                                         .Include(p => p.StartCoordinate)
                                         .Where(m => m.Id > 0).ToArray().AsEnumerable();
             return await Task.FromResult<GetAllMapEventResponse>(new GetAllMapEventResponse(retEnum, true, null)); 
+        }
+
+        public async Task<ConnectToMapEventResponse> AddUserToMapEvent(int mapEventId)
+        {
+            var user = await _userRepository.GetCurrentUser();
+            var mapEvent = await _appDbContext.MapEvents.SingleOrDefaultAsync(n => n.Id == mapEventId);
+            UserMapEvent userMapEvent = new UserMapEvent
+            {
+                User = user,
+                MapEvent = mapEvent
+            };
+            _appDbContext.UserMapEvents.Add(userMapEvent);
+            await _appDbContext.SaveChangesAsync();
+            return new ConnectToMapEventResponse(true, null);
         }
     }
 }

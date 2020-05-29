@@ -10,6 +10,7 @@ namespace Web.Api.Core.Interfaces.Gateways.Repositories
         Task<CreateMapEventResponse> Create(ICoordinate startCoordinate, ICoordinate endCoordinate);
         //временно получение всего и вся
         Task<GetAllMapEventResponse> GetAll();
+        Task<ConnectToMapEventResponse> AddUserToMapEvent(int mapEventId);
 
     }
 }

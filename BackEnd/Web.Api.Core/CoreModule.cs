@@ -1,6 +1,8 @@
 ﻿using Autofac;
 using Web.Api.Core.Interfaces.UseCases;
+using Web.Api.Core.Interfaces.UseCases.MapEvent;
 using Web.Api.Core.UseCases;
+using Web.Api.Core.UseCases.MapEvent;
 
 namespace Web.Api.Core
 {
@@ -9,6 +11,8 @@ namespace Web.Api.Core
         protected override void Load(ContainerBuilder builder)
         {
             builder.RegisterType<GetMapEventUseCase>().As<IGetMapEventUseCase>().InstancePerLifetimeScope();
+            builder.RegisterType<ConnectToMapEventUseCase>().As<IConnectToMapEventUseCase>().InstancePerLifetimeScope();
+            
             builder.RegisterType<RegisterUserUseCase>().As<IRegisterUserUseCase>().InstancePerLifetimeScope();
             builder.RegisterType<LoginUseCase>().As<ILoginUseCase>().InstancePerLifetimeScope();
             builder.RegisterType<MapEventUseCase>().As<IMapEventUseCase>().InstancePerLifetimeScope();
