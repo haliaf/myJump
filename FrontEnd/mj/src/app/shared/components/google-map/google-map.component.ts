@@ -16,6 +16,7 @@ export class GoogleMapComponent implements OnInit {
   @Input()
   userNavItemImg: string;
 
+
   @Input()
   startEventDotted?: IMapEvent[];
 
@@ -180,7 +181,7 @@ export class GoogleMapComponent implements OnInit {
       });
     }
 
-    function placeMarkerRouteEvent(position, position2, map, labelText) {
+    function placeMarkerRouteEvent(position, position2, map, labelText, eventId) {
       var marker = new google.maps.Marker({
           position: position,
           map: map,
@@ -189,6 +190,7 @@ export class GoogleMapComponent implements OnInit {
       marker.addListener('click', function() {
         Route(position,position2);
         map.setCenter(marker.getPosition());
+        window.localStorage.setItem('SelectStartPosition', eventId);
       });
       //map.panTo(position);
   }
@@ -219,7 +221,7 @@ export class GoogleMapComponent implements OnInit {
     this.startEventDotted.forEach(element => {
       let latLng = element.startCoordinate;
       let latLng2 = element.stopCoordinate;
-      cretedDotted = cretedDotted +  `placeMarkerRouteEvent({lat: `+latLng.latitude+`, lng: `+latLng.longitude+`}, {lat: `+latLng2.latitude+`, lng: `+latLng2.longitude+`}, map_` + this.mainIdCardElement + `,` + text+`);`;
+      cretedDotted = cretedDotted +  `placeMarkerRouteEvent({lat: `+latLng.latitude+`, lng: `+latLng.longitude+`}, {lat: `+latLng2.latitude+`, lng: `+latLng2.longitude+`}, map_` + this.mainIdCardElement + `,` + text+`,`+element.id+`);`;
     });
   }
     return cretedDotted;

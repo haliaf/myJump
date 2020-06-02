@@ -1,3 +1,4 @@
+import { RaceMapComponent } from './pages/home/race/race.map.component';
 import { CommonModule } from '@angular/common';
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
@@ -13,6 +14,7 @@ import { AppSpinnerComponent } from './shared/components/app-spinner/app-spinner
 import { GoogleMapComponent } from './shared/components/google-map/google-map.component';
 import { AuthGuardService } from './shared/services';
 import { LobbyMainMapComponent } from './pages/home/lobby-main-map/lobby.main.map.component';
+import { GoogleMapRaceComponent } from './shared/components/google-map-race/google-map-race.component';
 
 
 const routes: Routes = [
@@ -54,6 +56,6 @@ const routes: Routes = [
   providers: [AuthGuardService],
   exports: [RouterModule],
   // tslint:disable-next-line: max-line-length
-  declarations: [HomeComponent, ProfileComponent, DisplayDataComponent, MainMapComponent, LobbyMainMapComponent, GoogleMapComponent, SingleCardComponent]
+  declarations: [HomeComponent, ProfileComponent, DisplayDataComponent, MainMapComponent, RaceMapComponent, LobbyMainMapComponent, GoogleMapComponent, GoogleMapRaceComponent, SingleCardComponent]
 })
 export class AppRoutingModule { }

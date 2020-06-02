@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { IUserMapModelInfoDto, IUserMapModel } from '../user-map.model';
+import { IConnectToMapEventRequestDto } from '../../common/IMapEvent';
 
 
 
@@ -22,6 +23,14 @@ export class UserMapService {
   getMapEvents(): Observable<any> {
     const urlPath = environment.apiUrl + '/main/api/Map/getMapEvent';
     return this.http.get<any>(urlPath);
+  }
+  connectToMapEvents(startCoordinate): Observable<any> {
+    const urlPath = environment.apiUrl + '/main/api/Map/connectToMapEvent';
+
+    const dto: IConnectToMapEventRequestDto = {
+      mapEventId: startCoordinate
+    };
+    return this.http.put<any>(urlPath, dto);
   }
   }
 

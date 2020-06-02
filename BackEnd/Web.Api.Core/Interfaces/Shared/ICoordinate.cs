@@ -6,7 +6,7 @@ namespace Web.Api.Core.Interfaces.Shared
 {
     public interface ICoordinate
     {
-        decimal Longitude { get;  set; }
-        decimal Latitude { get;  set; }
+        string Longitude { get;  set; }
+        string Latitude { get;  set; }
     }
 }

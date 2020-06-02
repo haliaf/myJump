@@ -1,20 +1,28 @@
 <ng-container *ngIf="store$ | async; let store">
-  <dx-button type="normal" text="Подтвердить" width="33%" (onClick)="acceptToMapEvent()"></dx-button>
-  <dx-tab-panel
-    [selectedIndex]="1"
-    [animationEnabled]="true"
-    (onSelectionChanged)="onCreateSpeedRun($event)"
-    [swipeEnabled]="false"
-  >
-    <dxi-item title="Мир">
-      <app-main-map
-        [tabSelected]="checkbool(store.istabselected, 'Мир')"
-      ></app-main-map>
-    </dxi-item>
-    <dxi-item title="Мои">
-      <app-lobby-main-map
-        [tabSelected]="checkbool(store.istabselected, 'Мои')"
-      ></app-lobby-main-map>
-    </dxi-item>
-  </dx-tab-panel>
+  <div *ngIf="isRaceStart; else raceOut">
+   <app-race-map [selected]= 'true' [raceEventId] = 'raceEventId'></app-race-map>
+  </div>
+
+  <ng-template #raceOut>
+    <dx-button type="normal" text="Подтвердить" width="33%" (onClick)="acceptToMapEvent()"></dx-button>
+    <dx-tab-panel
+      [selectedIndex]="1"
+      [animationEnabled]="true"
+      (onSelectionChanged)="onCreateSpeedRun($event)"
+      [swipeEnabled]="false"
+    >
+      <dxi-item title="Мир">
+        <app-main-map
+          [tabSelected]="checkbool(store.istabselected, 'Мир')"
+        ></app-main-map>
+      </dxi-item>
+      <dxi-item title="Мои">
+        <app-lobby-main-map
+          [tabSelected]="checkbool(store.istabselected, 'Мои')"
+        ></app-lobby-main-map>
+      </dxi-item>
+    </dx-tab-panel>
+  </ng-template>
+
+
 </ng-container>

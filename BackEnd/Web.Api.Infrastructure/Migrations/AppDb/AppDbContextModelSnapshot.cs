@@ -29,9 +29,9 @@ namespace Web.Api.Infrastructure.Migrations.AppDb
 
                     b.Property<int?>("CreatedUserId");
 
-                    b.Property<decimal>("Latitude");
+                    b.Property<string>("Latitude");
 
-                    b.Property<decimal>("Longitude");
+                    b.Property<string>("Longitude");
 
                     b.Property<DateTime>("Modified");
 

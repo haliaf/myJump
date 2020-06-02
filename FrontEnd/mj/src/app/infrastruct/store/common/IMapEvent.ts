@@ -8,5 +8,13 @@ export interface IMapEvent {
   stopCoordinate: ICoordinateDto;
 }
 
+export interface IConnectToMapEventRequestDto{
+  mapEventId: number;
+}
 
+export enum RaceEvent{
+  goToStartRace = 1,
+  endRace,
+  startRace
+}
 

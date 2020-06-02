@@ -46,6 +46,16 @@ export function userMapReducer(state: IUserMapModel = initialState, action): IUs
       const wasChanged = ObjectHelper.deepSet(model, fullPath, changeset.value);
       return model;
 
+    case UserMapActionTypes.ConnectMapEventResponse:
+      model.isLoading = true;
+      model.selectedStartCoordinateMapEvents = +localStorage.getItem('SelectStartPosition');
+      return model;
+
+    case UserMapActionTypes.ConnectMapEventResponseComplete:
+      model.isLoading = false;
+      model.isRace = true;
+      return model;
+
     default:
       return model;
 

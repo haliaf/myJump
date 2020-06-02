@@ -8,7 +8,7 @@ namespace Web.Api.Core.Domain.Entities
 {
     public class Coordinate : BaseEntity, ICoordinate
     {
-        public decimal Longitude { get; set; }
-        public decimal Latitude { get; set; }
+        public string Longitude { get; set; }
+        public string Latitude { get; set; }
     }
 }

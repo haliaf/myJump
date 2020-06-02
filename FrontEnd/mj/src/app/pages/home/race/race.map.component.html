@@ -1,0 +1,6 @@
+
+<ng-container *ngIf="store$ | async; let store">
+  <div *ngIf="selected">
+<app-google-map-race [startEventDotted]="mapEvent"  userNavItemImg={{store.userprofileimagesresized}} mainIdCardElement="raceMap"></app-google-map-race>
+  </div>
+</ng-container>

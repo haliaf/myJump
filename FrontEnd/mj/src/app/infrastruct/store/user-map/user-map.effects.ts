@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Effect, Actions, ofType } from '@ngrx/effects';
-import { UserMapActionTypes, UserMapLoadCoordinateAction, UserMapLoadCoordinateCompleteAction, UserMapLoadAction, UserMapLoadCpmpleteAction } from './user-map.actions';
+import { UserMapActionTypes, UserMapLoadCoordinateAction, UserMapLoadCoordinateCompleteAction, UserMapLoadAction, UserMapLoadCpmpleteAction, UserMapConnectMapEventResponseAction, UserMapConnectMapEventResponseCompleteAction } from './user-map.actions';
 import { UserMapService } from './setvice/user-map.service';
 import { mergeMap, map } from 'rxjs/operators';
 import { IUserMapModel } from './user-map.model';
@@ -29,6 +29,17 @@ export class UserMapEffects {
          }),
         // catchError(error => of(new ErrorOccurredAction(error)))
       );
+
+      @Effect()
+      connectToUserMap$ = this.actions$
+         .pipe(
+            ofType(UserMapActionTypes.ConnectMapEventResponse),
+            mergeMap((action: UserMapConnectMapEventResponseAction) => this._srv.connectToMapEvents(this._infoDto.selectedStartCoordinateMapEvents)),
+            map((response: any) => {
+               return new UserMapConnectMapEventResponseCompleteAction();
+            }),
+           // catchError(error => of(new ErrorOccurredAction(error)))
+         );
 
       @Effect()
       loadUserMap$ = this.actions$
