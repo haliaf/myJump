@@ -9,6 +9,7 @@ export enum UserMapActionTypes {
 
    ConnectMapEventResponse = 'CONNECT_MAP_EVENT_RESPONSE',
    ConnectMapEventResponseComplete = 'CONNECT_MAP_EVENT_RESPONSE_COMPLETE',
+   DisconnectMapEventResponseComplete = 'DISCONNECT_MAP_EVENT_RESPONSE_COMPLETE',
 
    ChangeResponse = 'USER_MAP_CHANGE',
    ChangeResponseComplete = 'USER_MAP_CHANGE_COMPLETE',
@@ -19,6 +20,11 @@ export enum UserMapActionTypes {
 export class UserMapConnectMapEventResponseCompleteAction implements Action {
   readonly type = UserMapActionTypes.ConnectMapEventResponseComplete;
 }
+
+export class UserMapDisconnectMapEventResponseCompleteAction implements Action {
+  readonly type = UserMapActionTypes.DisconnectMapEventResponseComplete;
+}
+
 export class UserMapConnectMapEventResponseAction implements Action {
   readonly type = UserMapActionTypes.ConnectMapEventResponse;
 }

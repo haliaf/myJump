@@ -11,8 +11,6 @@ import { Store } from '@ngrx/store';
   styleUrls: ['./race.map.component.scss']
 })
 
-
-
 export class RaceMapComponent implements OnInit {
   @Input()
   resizedImage: string;
@@ -22,14 +20,19 @@ export class RaceMapComponent implements OnInit {
   goToStart: boolean;
   @Input()
   selected: boolean;
+  rEvent: number;//Для отслеживания события
   store$ = this._store.select(s => s.securityUserAccountStore);
   mapEvent: IMapEvent[];
   constructor(private _store: Store<IAppStore>) { }
 
   ngOnInit() {
+    this.rEvent = 1;
     this._store.select(s => s.userMapStore).subscribe(m => {
       this.mapEvent = m.activeMapEvents.filter( m => m.id === this.raceEventId);
     });
+  }
+  raceEvent(e){
+    this.rEvent = e;
   }
 
 }

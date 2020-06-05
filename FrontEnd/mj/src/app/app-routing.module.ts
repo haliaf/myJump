@@ -15,6 +15,7 @@ import { GoogleMapComponent } from './shared/components/google-map/google-map.co
 import { AuthGuardService } from './shared/services';
 import { LobbyMainMapComponent } from './pages/home/lobby-main-map/lobby.main.map.component';
 import { GoogleMapRaceComponent } from './shared/components/google-map-race/google-map-race.component';
+import { RaceLobbyComponent } from './pages/home/race/rave-lobby/race.lobby.component';
 
 
 const routes: Routes = [
@@ -52,10 +53,26 @@ const routes: Routes = [
 
 @NgModule({
   // tslint:disable-next-line: max-line-length
-  imports: [RouterModule.forRoot(routes), DxDataGridModule, DxFormModule, DxScrollViewModule, DxTabPanelModule, DxLoadIndicatorModule, DxButtonModule, DxFileUploaderModule, CommonModule],
+  imports: [RouterModule.forRoot(routes), DxDataGridModule,
+                                          DxFormModule,
+                                          DxScrollViewModule,
+                                          DxTabPanelModule,
+                                          DxLoadIndicatorModule,
+                                          DxButtonModule,
+                                          DxFileUploaderModule,
+                                          CommonModule],
   providers: [AuthGuardService],
   exports: [RouterModule],
   // tslint:disable-next-line: max-line-length
-  declarations: [HomeComponent, ProfileComponent, DisplayDataComponent, MainMapComponent, RaceMapComponent, LobbyMainMapComponent, GoogleMapComponent, GoogleMapRaceComponent, SingleCardComponent]
+  declarations: [ HomeComponent,
+                  ProfileComponent,
+                  DisplayDataComponent,
+                  MainMapComponent,
+                  RaceMapComponent,
+                  LobbyMainMapComponent,
+                  GoogleMapComponent,
+                  GoogleMapRaceComponent,
+                  RaceLobbyComponent,
+                  SingleCardComponent]
 })
 export class AppRoutingModule { }

@@ -56,6 +56,11 @@ export function userMapReducer(state: IUserMapModel = initialState, action): IUs
       model.isRace = true;
       return model;
 
+    case UserMapActionTypes.DisconnectMapEventResponseComplete:
+        model.isLoading = false;
+        model.isRace = false;
+        return model;
+
     default:
       return model;
 

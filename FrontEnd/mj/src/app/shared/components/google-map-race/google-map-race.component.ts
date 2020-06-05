@@ -29,6 +29,7 @@ export class GoogleMapRaceComponent implements OnInit {
     private renderer2: Renderer2) { }
 
   ngOnInit() {
+    this.mainIdCardElement = this.mainIdCardElement + this.receEvent;
     const srcScript = this.renderer2.createElement('script');
     srcScript.type = 'text/javascript';
     srcScript.text = `
@@ -164,19 +165,7 @@ export class GoogleMapRaceComponent implements OnInit {
     }, 5000);
 
        directionsDisplay.setMap(map_` + this.mainIdCardElement + `);
-       //Здесь будем проверять директивой сверху
-       map_` + this.mainIdCardElement + `.addListener('click', function(e) {
-         if(startLatLngVal == null){
-            window.localStorage.setItem('StartCoordinate', e.latLng);
-          }
-        startLatLngVal = e.latLng;
-        placeMarker(e.latLng, map_` + this.mainIdCardElement + `);
-        if(prevLatLngVal != null){
-          window.localStorage.setItem('StopCoordinate', e.latLng);
-          Route(prevLatLngVal, e.latLng);
-        }
-        prevLatLngVal = e.latLng;
-    });
+
 
     function setMyPosition(userNavItemImg, mainIdCardElement) {
       var marker = new google.maps.Marker({
@@ -242,6 +231,13 @@ export class GoogleMapRaceComponent implements OnInit {
   calculateStartDotted(){
     let cretedDotted =  '';
     const text = "'гонко'";
+    if(this.receEvent == RaceEvent.startRace){
+      this.startEventDotted.forEach(element => {
+        let latLng = element.startCoordinate;
+        let latLng2 = element.stopCoordinate;
+        cretedDotted = cretedDotted +  `Route({lat: `+latLng.latitude+`, lng: `+latLng.longitude+`}, {lat: `+latLng2.latitude+`, lng: `+latLng2.longitude+`});`;
+      });
+    }
     if(!!this.startEventDotted){
     this.startEventDotted.forEach(element => {
       let latLng = element.startCoordinate;
