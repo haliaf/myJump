@@ -13,6 +13,7 @@ namespace Web.Api.Infrastructure
     {
         protected override void Load(ContainerBuilder builder)
         {
+            builder.RegisterType<SignalDataRepository>().As<ISignalRepository>().InstancePerLifetimeScope();
             builder.RegisterType<UserRepository>().As<IUserRepository>().InstancePerLifetimeScope();
             builder.RegisterType<MapRepository>().As<IMapRepository>().InstancePerLifetimeScope();
             builder.RegisterType<CoordinateRepository>().As<ICoordinateRepository>().InstancePerLifetimeScope();

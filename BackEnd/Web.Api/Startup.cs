@@ -26,6 +26,7 @@ using Web.Api.Common.Services;
 using Web.Api.Common.Services.Interface;
 using Web.Api.Core;
 using Web.Api.Extensions;
+using Web.Api.Hubs;
 using Web.Api.Infrastructure;
 using Web.Api.Infrastructure.Auth;
 using Web.Api.Infrastructure.Data;
@@ -132,6 +133,7 @@ namespace Web.Api
 
             identityBuilder = new IdentityBuilder(identityBuilder.UserType, typeof(IdentityRole), identityBuilder.Services);
             identityBuilder.AddEntityFrameworkStores<AppIdentityDbContext>().AddDefaultTokenProviders();
+            services.AddSignalR();
             services
                 .AddHttpContextAccessor()
                 .AddScoped<IUserContextFactory, HttpUserContextFactory>();
@@ -207,6 +209,10 @@ namespace Web.Api
             app.UseSwagger();
             app.UseAuthentication();
             app.UseMvc();
+            app.UseSignalR(routest =>
+            {
+                routest.MapHub<SignalHub>("/signalHub");
+            });
         }
     }
 }

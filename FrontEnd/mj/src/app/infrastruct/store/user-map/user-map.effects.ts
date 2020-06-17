@@ -52,5 +52,16 @@ export class UserMapEffects {
            // catchError(error => of(new ErrorOccurredAction(error)))
          );
 
+         @Effect()
+         startMapEvent$ = this.actions$
+            .pipe(
+               ofType(UserMapActionTypes.StartMapEventResponse),
+               mergeMap((action: UserMapLoadAction) => this._srv.startMapEvents()),
+               map((response: any) => {
+                 //костыль сделать нормальный ACTION
+                  return new UserMapConnectMapEventResponseCompleteAction();
+               }),
+              // catchError(error => of(new ErrorOccurredAction(error)))
+            );
 
 }

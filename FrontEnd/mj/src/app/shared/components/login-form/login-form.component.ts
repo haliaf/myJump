@@ -1,3 +1,4 @@
+import { AppSpinnerModule } from './../app-spinner/app-spinner.component';
 import { navigation } from './../../../app-navigation';
 import { Component, NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
@@ -20,7 +21,7 @@ import { DxScrollViewModule } from 'devextreme-angular';
 export class LoginFormComponent {
   login = '';
   password = '';
-
+  isLoginStart = false;
   constructor(private authService: AuthService, public appInfo: AppInfoService, private router: Router) { }
   onRegisterClick(){
     this.router.navigate(['signup']);
@@ -31,7 +32,7 @@ export class LoginFormComponent {
     }
 
     this.authService.logIn(this.login, this.password);
-
+    this.isLoginStart = true;
     args.validationGroup.reset();
   }
 }
@@ -39,6 +40,7 @@ export class LoginFormComponent {
   imports: [
     CommonModule,
     RouterModule,
+    AppSpinnerModule,
     DxButtonModule,
     DxCheckBoxModule,
     DxTextBoxModule,

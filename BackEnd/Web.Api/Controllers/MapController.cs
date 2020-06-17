@@ -1,16 +1,18 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.SignalR;
 using System.Security.Claims;
 using System.Threading.Tasks;
 using Web.Api.Core.Dto.UseCaseRequests;
 using Web.Api.Core.Interfaces.UseCases;
 using Web.Api.Core.Interfaces.UseCases.MapEvent;
+using Web.Api.Hubs;
 using Web.Api.Models.Request;
 using Web.Api.Presenters;
 
 namespace Web.Api.Controllers
 {
-  //  [Authorize(Policy = "ApiUser")]
+    //  [Authorize(Policy = "ApiUser")]
     [Route("api/[controller]")]
     [ApiController]
     public class MapController : ControllerBase
@@ -21,8 +23,10 @@ namespace Web.Api.Controllers
         private readonly IMapEventUseCase _mapEventUseCase;
         private readonly IConnectToMapEventUseCase _connectToMapEventUseCase;
         private readonly IGetMapEventUseCase _getMapEventUseCase;
-        public MapController(IConnectToMapEventUseCase connectToMapEventUseCase, ConnectToMapEventsPresenter connectToMapEventsPresenter, GetMapEventPresenter getMapEventPresenter, MapEventPresenter mapEventPresenter, IMapEventUseCase mapEventUseCase, IGetMapEventUseCase getMapEventUseCase)
+        private readonly IHubContext<SignalHub> _hubContext;
+        public MapController(IHubContext<SignalHub> hubContext, IConnectToMapEventUseCase connectToMapEventUseCase, ConnectToMapEventsPresenter connectToMapEventsPresenter, GetMapEventPresenter getMapEventPresenter, MapEventPresenter mapEventPresenter, IMapEventUseCase mapEventUseCase, IGetMapEventUseCase getMapEventUseCase)
         {
+            _hubContext = hubContext;
             _connectToMapEventUseCase = connectToMapEventUseCase;
             _mapEventPresenter = mapEventPresenter;
             _getMapEventPresenter = getMapEventPresenter;
@@ -53,7 +57,16 @@ namespace Web.Api.Controllers
         {
             if (!ModelState.IsValid) { return BadRequest(ModelState); }
             await _connectToMapEventUseCase.Handle(new ConnectToMapEventsUseCaseRequest(mapEventDto.MapEventId), _connectToMapEventsPresenter);
+            await _hubContext.Clients.All.SendAsync("SignalMessage", "start");
             return _connectToMapEventsPresenter.ContentResult;
+        }
+
+        [HttpPut("startMapEvent")]
+        public async Task<ActionResult> StartMapEvent(int id)
+        {
+            await _hubContext.Clients.All.SendAsync("SignalMessage", "start");
+            return Ok();
         }
     }
 }
+

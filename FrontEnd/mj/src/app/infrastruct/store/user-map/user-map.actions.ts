@@ -16,6 +16,8 @@ export enum UserMapActionTypes {
 
    LoadCoordinate = 'USER_MAP_LOAD_COOARDINATE',
    LoadCoordinateComplete = 'USER_MAP_LOAD_COOARDINATE_COMPLETE',
+
+   StartMapEventResponse = 'START_MAP_EVENT_RESPONSE',
 }
 export class UserMapConnectMapEventResponseCompleteAction implements Action {
   readonly type = UserMapActionTypes.ConnectMapEventResponseComplete;
@@ -39,7 +41,9 @@ export class UserMapLoadCoordinateCompleteAction implements Action {
 export class UserMapLoadAction implements Action {
    readonly type = UserMapActionTypes.Load;
 }
-
+export class UserMapStartEventAction implements Action {
+  readonly type = UserMapActionTypes.StartMapEventResponse;
+}
 export class UserMapLoadCpmpleteAction implements Action {
   readonly type = UserMapActionTypes.LoadComplete;
   payload: any;

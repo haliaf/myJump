@@ -14,6 +14,7 @@ namespace Web.Api.Core.Domain.Entities
         public Coordinate StartCoordinate { get; set; }
         public Coordinate StopCoordinate { get; set; }
         public ICollection<UserMapEvent> CurrentUsers { get; set; }
+        public ICollection<SignalData> CurrentSignals { get; set; }
 
     }
 }

@@ -10,7 +10,7 @@ import { MainMapComponent } from './pages/home/main-map/main.map.component';
 import { ProfileComponent } from './pages/profile/profile.component';
 import { RegisterComponent } from './pages/register/register.component';
 import { LoginFormComponent } from './shared/components';
-import { AppSpinnerComponent } from './shared/components/app-spinner/app-spinner.component';
+import { AppSpinnerComponent, AppSpinnerModule } from './shared/components/app-spinner/app-spinner.component';
 import { GoogleMapComponent } from './shared/components/google-map/google-map.component';
 import { AuthGuardService } from './shared/services';
 import { LobbyMainMapComponent } from './pages/home/lobby-main-map/lobby.main.map.component';
@@ -59,6 +59,7 @@ const routes: Routes = [
                                           DxTabPanelModule,
                                           DxLoadIndicatorModule,
                                           DxButtonModule,
+                                          AppSpinnerModule,
                                           DxFileUploaderModule,
                                           CommonModule],
   providers: [AuthGuardService],

@@ -104,6 +104,35 @@ namespace Web.Api.Infrastructure.Migrations.AppDb
                     b.ToTable("RefreshTokens");
                 });
 
+            modelBuilder.Entity("Web.Api.Core.Domain.Entities.SignalData", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<DateTime>("Created");
+
+                    b.Property<int?>("CreatedUserId");
+
+                    b.Property<int?>("MapEventId");
+
+                    b.Property<DateTime>("Modified");
+
+                    b.Property<int?>("ModifiedUserId");
+
+                    b.Property<DateTime>("SignalDate");
+
+                    b.Property<int>("SignalId");
+
+                    b.Property<string>("Zone");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("MapEventId");
+
+                    b.ToTable("SignalsData");
+                });
+
             modelBuilder.Entity("Web.Api.Core.Domain.Entities.User", b =>
                 {
                     b.Property<int>("Id")
@@ -177,6 +206,13 @@ namespace Web.Api.Infrastructure.Migrations.AppDb
                         .WithMany("RefreshTokens")
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade);
+                });
+
+            modelBuilder.Entity("Web.Api.Core.Domain.Entities.SignalData", b =>
+                {
+                    b.HasOne("Web.Api.Core.Domain.Entities.MapEvent")
+                        .WithMany("CurrentSignals")
+                        .HasForeignKey("MapEventId");
                 });
 
             modelBuilder.Entity("Web.Api.Core.Domain.Entities.UserMapEvent", b =>

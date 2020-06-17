@@ -18,6 +18,7 @@ namespace Web.Api.Infrastructure.Data
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+
             modelBuilder.Entity<UserMapEvent>()
                         .HasKey(bc => new { bc.UserId, bc.MapEventId });
             modelBuilder.Entity<UserMapEvent>()
@@ -43,7 +44,7 @@ namespace Web.Api.Infrastructure.Data
             builder.Ignore(b => b.PasswordHash);
 
         }
-
+        public DbSet<SignalData> SignalsData { get; set; }
         public DbSet<UserMapEvent> UserMapEvents { get; set; }
         public DbSet<RefreshToken> RefreshTokens { get; set; }
         public DbSet<User> Users { get; set; }
@@ -65,16 +66,16 @@ namespace Web.Api.Infrastructure.Data
         private void AddAuitInfo()
         {
             var entries = ChangeTracker.Entries().Where(x => x.Entity is BaseEntity && (x.State == EntityState.Added || x.State == EntityState.Modified));
-           // var userModified = this._userRepository.GetCurrentUser().GetAwaiter().GetResult();
+            // var userModified = this._userRepository.GetCurrentUser().GetAwaiter().GetResult();
             foreach (var entry in entries)
             {
                 if (entry.State == EntityState.Added)
                 {
                     ((BaseEntity)entry.Entity).Created = DateTime.UtcNow;
-                  //  ((BaseEntity)entry.Entity).CreatedUser = userModified;
+                    //  ((BaseEntity)entry.Entity).CreatedUser = userModified;
                 }
                 ((BaseEntity)entry.Entity).Modified = DateTime.UtcNow;
-              //  ((BaseEntity)entry.Entity).ModifiedUser = userModified;
+                //  ((BaseEntity)entry.Entity).ModifiedUser = userModified;
             }
         }
     }

@@ -24,9 +24,12 @@ export class UserMapService {
     const urlPath = environment.apiUrl + '/main/api/Map/getMapEvent';
     return this.http.get<any>(urlPath);
   }
+  startMapEvents(): Observable<any> {
+    const urlPath = environment.apiUrl + '/main/api/Map/startMapEvent';
+    return this.http.put<any>(urlPath, 1);
+  }
   connectToMapEvents(startCoordinate): Observable<any> {
     const urlPath = environment.apiUrl + '/main/api/Map/connectToMapEvent';
-
     const dto: IConnectToMapEventRequestDto = {
       mapEventId: startCoordinate
     };

@@ -3,6 +3,7 @@ import { AuthService, ScreenService, AppInfoService } from './shared/services';
 import { Store } from '@ngrx/store';
 import { IAppStore } from './infrastruct/store/store-root.module';
 import { SecurityUserLoadAction } from './infrastruct/store/security-user/security-user.actions';
+import { SignalRService } from './infrastruct/signalR/service/signal-r.service';
 
 @Component({
   selector: 'app-root',
