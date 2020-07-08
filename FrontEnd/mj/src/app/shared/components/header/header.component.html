@@ -1,4 +1,5 @@
 <header>
+  <ng-container *ngIf="store$ | async; let store">
     <dx-toolbar class="header-toolbar">
         <dxi-item
             *ngIf="menuToggleEnabled"
@@ -24,11 +25,11 @@
             <div *dxTemplate="let data of 'item'">
                 <dx-button
                     class="user-button authorization"
-                    width="172px"
+                    width="100%"
                     height="100%"
                     stylingMode="text">
                     <div *dxTemplate="let data of 'content'">
-                        <app-user-panel [menuItems]="userMenuItems" menuMode="context"></app-user-panel>
+                        <app-user-panel [userName] = "store.firstName" [avatarImageUrl] = "store.userprofileimages" [menuItems]="userMenuItems" menuMode="context"></app-user-panel>
                     </div>
                 </dx-button>
             </div>
@@ -37,4 +38,5 @@
             <app-user-panel [menuItems]="userMenuItems" menuMode="list"></app-user-panel>
         </div>
     </dx-toolbar>
+  </ng-container>
 </header>

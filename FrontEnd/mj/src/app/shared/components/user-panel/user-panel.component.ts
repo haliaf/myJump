@@ -15,6 +15,12 @@ export class UserPanelComponent {
   menuItems: any;
 
   @Input()
+  avatarImageUrl: any;
+
+  @Input()
+  userName: any;
+
+  @Input()
   menuMode: string;
 
   constructor() {}

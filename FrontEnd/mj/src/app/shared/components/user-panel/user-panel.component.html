@@ -1,9 +1,9 @@
 <div class="user-panel">
     <div class="user-info">
         <div class="image-container">
-            <div class="user-image"></div>
+            <div class="user-image" style="background:url({{avatarImageUrl}})"></div>
         </div>
-        <div class="user-name">Sandra Johnson</div>
+        <div class="user-name">{{userName}}</div>
     </div>
     <dx-context-menu
         *ngIf="menuMode === 'context'"

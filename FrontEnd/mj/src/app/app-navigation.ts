@@ -1,21 +1,12 @@
 export const navigation = [
   {
-    text: 'Home',
+    text: 'Мир',
     path: '/home',
-    icon: 'home'
+    icon: 'globe'
   },
   {
-    text: 'Examples',
-    icon: 'folder',
-    items: [
-      {
-        text: 'Profile',
-        path: '/profile'
-      },
-      {
-        text: 'Display Data',
-        path: '/display-data'
-      }
-    ]
+    text: 'Лента',
+    path: '/profile',
+    icon: 'showpanel'
   }
 ];

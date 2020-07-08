@@ -6,6 +6,9 @@ import { UserPanelModule } from '../user-panel/user-panel.component';
 import { DxButtonModule } from 'devextreme-angular/ui/button';
 import { DxToolbarModule } from 'devextreme-angular/ui/toolbar';
 import { Router } from '@angular/router';
+import { Store } from '@ngrx/store';
+import { IAppStore } from 'src/app/infrastruct/store/store-root.module';
+
 
 @Component({
   selector: 'app-header',
@@ -36,8 +39,8 @@ export class HeaderComponent {
       this.authService.logOut();
     }
   }];
-
-  constructor(private authService: AuthService, private router: Router) { }
+  store$ = this._store.select(s => s.securityUserAccountStore);
+  constructor(private authService: AuthService, private router: Router, private _store: Store<IAppStore>) { }
 
   toggleMenu = () => {
     this.menuToggle.emit();
