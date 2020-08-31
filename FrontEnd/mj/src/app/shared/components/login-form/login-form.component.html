@@ -33,6 +33,9 @@
           </dx-validator>
         </dx-text-box>
       </div>
+      <dx-validation-summary id="summary">
+      </dx-validation-summary>
+      <i *ngIf="validationMessage">{{validationMessage}}</i>
       <div class="dx-field">
         <dx-button
           type="default"

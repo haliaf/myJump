@@ -5,6 +5,8 @@ import { ActivatedRouteSnapshot, CanActivate, Router } from '@angular/router';
 import { Observable, BehaviorSubject } from 'rxjs';
 import { error } from 'protractor';
 
+type ICallback = ( err: any )  => void;
+
 @Injectable()
 export class AuthService {
   uri = 'http://localhost:8080/main/api';
@@ -24,7 +26,7 @@ export class AuthService {
     }, err => this.logOut());
   }
 
-  logIn(email: string, password: string) {
+  logIn(email: string, password: string, errCallback: ICallback) {
     this.http.post(this.uri + '/auth/login', { UserName: email, Password: password })
       .subscribe((resp: any) => {
         localStorage.setItem('auth_token', resp.accessToken.token);
@@ -35,6 +37,9 @@ export class AuthService {
         this.token = resp.auth_token;
 
         this.router.navigate(['/profile']);
+      },
+      err  => {
+        errCallback(err);
       });
   }
 
