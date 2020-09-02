@@ -25,6 +25,7 @@ import { AppSpinnerComponent, AppSpinnerModule } from './shared/components/app-s
 import { SecurityUserAccountEffects } from './infrastruct/store/account-user/account-user..effects';
 import { UserMenuInfoComponent } from './shared/components/user-menu-info/user-menu-info.component';
 import { UserMapEffects } from './infrastruct/store/user-map/user-map.effects';
+import { FaceBookRegisterComponent } from './pages/register/register-fb/face-book-register/face-book-register.component';
 
 
 export function tokenGetter() {

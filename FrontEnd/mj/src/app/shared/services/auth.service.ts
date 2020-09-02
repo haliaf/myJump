@@ -5,11 +5,12 @@ import { ActivatedRouteSnapshot, CanActivate, Router } from '@angular/router';
 import { Observable, BehaviorSubject } from 'rxjs';
 import { error } from 'protractor';
 
-type ICallback = ( err: any )  => void;
+type ICallback = (err: any) => void;
 
 @Injectable()
 export class AuthService {
   uri = 'http://localhost:8080/main/api';
+  baseUrl = 'http://localhost:8080';
   public token: string;
   loggedIn = false;
 
@@ -17,13 +18,13 @@ export class AuthService {
 
   refreshToken() {
     this.http.post(this.uri + '/auth/refreshtoken', { AccessToken: localStorage.getItem('auth_token'), RefreshToken: localStorage.getItem('refreshToken') })
-    .subscribe((resp: any) => {
-      localStorage.setItem('auth_token', resp.accessToken.token);
-      localStorage.setItem('expiresIn', resp.accessToken.expiresIn);
-      localStorage.setItem('refreshToken', resp.refreshToken);
-      localStorage.setItem('expiresGetDate', new Date().toString());
-      this.token = resp.auth_token;
-    }, err => this.logOut());
+      .subscribe((resp: any) => {
+        localStorage.setItem('auth_token', resp.accessToken.token);
+        localStorage.setItem('expiresIn', resp.accessToken.expiresIn);
+        localStorage.setItem('refreshToken', resp.refreshToken);
+        localStorage.setItem('expiresGetDate', new Date().toString());
+        this.token = resp.auth_token;
+      }, err => this.logOut());
   }
 
   logIn(email: string, password: string, errCallback: ICallback) {
@@ -38,9 +39,9 @@ export class AuthService {
 
         this.router.navigate(['/profile']);
       },
-      err  => {
-        errCallback(err);
-      });
+        err => {
+          errCallback(err);
+        });
   }
 
   logOut() {
@@ -50,13 +51,31 @@ export class AuthService {
     this.router.navigate(['/login-form']);
   }
 
+  facebookLogin(accessToken: string) {
+  //  const headers = new Headers();
+   // headers.append('Content-Type', 'application/json');
+    const body = JSON.stringify({ accessToken });
+    return this.http
+      .post(
+        this.baseUrl + '/externalauth/facebook', body)
+        .subscribe( m =>
+          console.log(m));
+   //   .map(res => res.json())
+   //   .map(res => {
+   //     localStorage.setItem('auth_token', res.auth_token);
+   //     this.loggedIn = true;
+       /// this._authNavStatusSource.next(true);
+    //    return true;
+      //.catch(this.handleError);
+  }
+
   public get currentUserTokenValue(): string {
     return localStorage.getItem('auth_token');
   }
 
   public get isExpiredUserToken(): boolean {
     const expiresGetDate = new Date(localStorage.getItem('expiresGetDate'));
-    if(!expiresGetDate){
+    if (!expiresGetDate) {
       return false;
     }
     const expiresIn = +localStorage.getItem('expiresIn');
@@ -78,7 +97,7 @@ export class AuthGuardService implements CanActivate {
   constructor(private router: Router, private authService: AuthService) { }
 
   canActivate(route: ActivatedRouteSnapshot): boolean {
-   // return true;
+    // return true;
     const isLoggedIn = this.authService.isLoggedIn;
     const isLoginForm = route.routeConfig.path === 'login-form';
 

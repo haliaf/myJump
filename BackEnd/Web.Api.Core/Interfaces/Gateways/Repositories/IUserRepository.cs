@@ -10,6 +10,7 @@ namespace Web.Api.Core.Interfaces.Gateways.Repositories
         Task<CreateUserResponse> Create(string firstName, string lastName, string email, string userName, string password);
         Task<AddUserProfileImagesRepositoryResponse> AddUserProfileImages(string imagesBase64, string userName);
         Task<User> FindByName(string userName);
+        Task<User> FindByEmail(string email);
         Task<User> GetCurrentUser();
         Task<bool> CheckPassword(User user, string password);
     }

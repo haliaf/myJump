@@ -1,5 +1,6 @@
 ﻿using Autofac;
 using Web.Api.Core.Interfaces.UseCases;
+using Web.Api.Core.Interfaces.UseCases.Auth;
 using Web.Api.Core.Interfaces.UseCases.MapEvent;
 using Web.Api.Core.UseCases;
 using Web.Api.Core.UseCases.MapEvent;
@@ -12,7 +13,7 @@ namespace Web.Api.Core
         {
             builder.RegisterType<GetMapEventUseCase>().As<IGetMapEventUseCase>().InstancePerLifetimeScope();
             builder.RegisterType<ConnectToMapEventUseCase>().As<IConnectToMapEventUseCase>().InstancePerLifetimeScope();
-            
+            builder.RegisterType<FacebookLoginUseCase>().As<IFacebookAuthUseCase>().InstancePerLifetimeScope();
             builder.RegisterType<RegisterUserUseCase>().As<IRegisterUserUseCase>().InstancePerLifetimeScope();
             builder.RegisterType<LoginUseCase>().As<ILoginUseCase>().InstancePerLifetimeScope();
             builder.RegisterType<MapEventUseCase>().As<IMapEventUseCase>().InstancePerLifetimeScope();

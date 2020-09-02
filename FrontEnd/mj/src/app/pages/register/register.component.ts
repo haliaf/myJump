@@ -7,7 +7,7 @@ import { Router, RouterModule } from '@angular/router';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { Store } from '@ngrx/store';
 // tslint:disable-next-line: max-line-length
-import { DxButtonModule, DxCheckBoxModule, DxDateBoxModule, DxFormModule, DxScrollViewModule, DxSelectBoxModule, DxTextAreaModule, DxTextBoxModule, DxValidationGroupModule, DxValidatorModule, DxLoadIndicatorModule } from 'devextreme-angular';
+import { DxButtonModule, DxCheckBoxModule, DxDateBoxModule, DxFormModule, DxScrollViewModule, DxSelectBoxModule, DxTextAreaModule, DxTextBoxModule, DxValidationGroupModule, DxValidatorModule, DxLoadIndicatorModule, DxPopupModule } from 'devextreme-angular';
 import { RegisterUserResponseAction } from 'src/app/infrastruct/store/register-user/register-user.actions';
 import { IAppStore } from 'src/app/infrastruct/store/store-root.module';
 import { ViewInputBlock } from 'src/app/shared/components/_default/ViewInputBlock';
@@ -15,6 +15,7 @@ import { ViewInputBlockParam } from 'src/app/shared/components/_default/ViewInpu
 import { IRegisterUserSimpleInfoDto, IRegisterUserModel } from './../../infrastruct/store/register-user/register-user.model';
 import { AppSpinnerComponent, AppSpinnerModule } from 'src/app/shared/components/app-spinner/app-spinner.component';
 import { map } from 'rxjs/operators';
+import { FaceBookRegisterComponent } from './register-fb/face-book-register/face-book-register.component';
 
 @Component({
   selector: 'app-register',
@@ -32,6 +33,7 @@ export class RegisterComponent extends ViewInputBlock<IRegisterUserSimpleInfoDto
     useSubmitBehavior: true
  };
 state: IRegisterUserModel;
+fbpopupVisible = false;
 store$ = this._store.select(s => s.securityUserRegisteStore);
 userSettings$ = this._store.select(s => s.securityUserStore);
 
@@ -57,6 +59,10 @@ userSettings$ = this._store.select(s => s.securityUserStore);
                                           video.muted = true;
                                           video.play()}, 800)`;
     this.renderer2.appendChild(this.document.body, srcScript);
+  }
+
+  launchFbLogin(){
+    this.fbpopupVisible = true;
   }
 
   passwordComparison = () => {
@@ -101,10 +107,11 @@ userSettings$ = this._store.select(s => s.securityUserStore);
     FormsModule,
     FontAwesomeModule,
     MatInputModule,
+    DxPopupModule,
     AppSpinnerModule
 
   ],
-  declarations: [RegisterComponent],
+  declarations: [RegisterComponent,  FaceBookRegisterComponent],
   exports: [RegisterComponent]
 
 

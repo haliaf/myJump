@@ -16,6 +16,7 @@ import { AuthGuardService } from './shared/services';
 import { LobbyMainMapComponent } from './pages/home/lobby-main-map/lobby.main.map.component';
 import { GoogleMapRaceComponent } from './shared/components/google-map-race/google-map-race.component';
 import { RaceLobbyComponent } from './pages/home/race/rave-lobby/race.lobby.component';
+import { FaceBookRegisterComponent } from './pages/register/register-fb/face-book-register/face-book-register.component';
 
 
 const routes: Routes = [

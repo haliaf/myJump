@@ -45,6 +45,11 @@ namespace Web.Api.Infrastructure.Data.Repositories
             var appUser = await _userManager.FindByNameAsync(userName);
             return appUser == null ? null : _mapper.Map(appUser, await GetSingleBySpec(new UserSpecification(appUser.Id)));
         }
+        public async Task<User> FindByEmail(string email)
+        {
+            var appUser = await _userManager.FindByEmailAsync(email);
+            return appUser == null ? null : _mapper.Map(appUser, await GetSingleBySpec(new UserSpecification(appUser.Id)));
+        }
 
         public async Task<User> GetCurrentUser()
         {

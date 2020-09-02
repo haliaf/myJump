@@ -14,4 +14,8 @@
     <ProjectReference Include="..\Web.Api.Common\Web.Api.Common.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Dto\UseCaseResponses\Auth\" />
+  </ItemGroup>
+
 </Project>

@@ -45,7 +45,15 @@
             type="normal"
             text="Войти через Facebook"
             width="33%"
+            (onClick)="launchFbLogin()"
           ></dx-button>
+          <dx-button
+          class="social-wrap-btn g-dx-button"
+          icon="fab fa-google iconFLoat"
+          type="normal"
+          text="Войти через Google"
+          width="33%"
+        ></dx-button>
         </div>
       </blockquote>
     </div>
@@ -177,4 +185,17 @@
     </div>
   </div>
 </div>
+
+<dx-popup
+[width]="300"
+[height]="250"
+[showTitle]="true"
+title="Information"
+[dragEnabled]="false"
+[closeOnOutsideClick]="true"
+[(visible)]="fbpopupVisible">
+<div *dxTemplate="let data of 'content'">
+<app-face-book-register *ngIf="fbpopupVisible"></app-face-book-register>
+</div>
+</dx-popup>
 </ng-container>
