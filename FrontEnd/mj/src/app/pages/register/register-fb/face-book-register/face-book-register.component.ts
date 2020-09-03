@@ -14,7 +14,7 @@ export class FaceBookRegisterComponent implements OnInit {
   isRequesting: boolean;
 
   launchFbLogin() {
-    this.authWindow = window.open('https://www.facebook.com/v2.11/dialog/oauth?&response_type=token&display=popup&client_id=316545856243815&display=popup&redirect_uri=http://localhost:5000/facebook-auth.html&scope=email',null,'width=600,height=400');
+    this.authWindow = window.open('https://www.facebook.com/v2.11/dialog/oauth?&response_type=token&display=popup&client_id=316545856243815&display=popup&redirect_uri=http://localhost:8080/facebook-auth.html&scope=email', null, 'width=600,height=400');
   }
 
   constructor(private authService: AuthService) {

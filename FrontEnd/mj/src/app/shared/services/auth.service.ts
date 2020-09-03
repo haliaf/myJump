@@ -57,7 +57,7 @@ export class AuthService {
     const body = JSON.stringify({ accessToken });
     return this.http
       .post(
-        this.baseUrl + '/externalauth/facebook', body)
+        this.uri + '/ExternalAuth/Facebook', { AccessToken: accessToken })
         .subscribe( m =>
           console.log(m));
    //   .map(res => res.json())
