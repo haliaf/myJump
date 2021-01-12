@@ -25,3 +25,15 @@ C:\Ankh\myJump\BackEnd\Web.Api.Core\obj\Debug\netcoreapp2.1\Web.Api.Core.pdb
 C:\Ankh\myJump\BackEnd\Web.Api.Core\bin\Debug\netcoreapp2.1\Web.Api.Common.dll
 C:\Ankh\myJump\BackEnd\Web.Api.Core\bin\Debug\netcoreapp2.1\Web.Api.Common.pdb
 C:\Ankh\myJump\BackEnd\Web.Api.Core\obj\Debug\netcoreapp2.1\Web.Api.Core.csproj.CopyComplete
+D:\Work\myJump\BackEnd\Web.Api.Core\bin\Debug\netcoreapp2.1\Web.Api.Core.deps.json
+D:\Work\myJump\BackEnd\Web.Api.Core\bin\Debug\netcoreapp2.1\Web.Api.Core.dll
+D:\Work\myJump\BackEnd\Web.Api.Core\bin\Debug\netcoreapp2.1\Web.Api.Core.pdb
+D:\Work\myJump\BackEnd\Web.Api.Core\bin\Debug\netcoreapp2.1\Web.Api.Common.dll
+D:\Work\myJump\BackEnd\Web.Api.Core\bin\Debug\netcoreapp2.1\Web.Api.Common.pdb
+D:\Work\myJump\BackEnd\Web.Api.Core\obj\Debug\netcoreapp2.1\Web.Api.Core.csprojAssemblyReference.cache
+D:\Work\myJump\BackEnd\Web.Api.Core\obj\Debug\netcoreapp2.1\Web.Api.Core.AssemblyInfoInputs.cache
+D:\Work\myJump\BackEnd\Web.Api.Core\obj\Debug\netcoreapp2.1\Web.Api.Core.AssemblyInfo.cs
+D:\Work\myJump\BackEnd\Web.Api.Core\obj\Debug\netcoreapp2.1\Web.Api.Core.csproj.CoreCompileInputs.cache
+D:\Work\myJump\BackEnd\Web.Api.Core\obj\Debug\netcoreapp2.1\Web.Api.Core.csproj.CopyComplete
+D:\Work\myJump\BackEnd\Web.Api.Core\obj\Debug\netcoreapp2.1\Web.Api.Core.dll
+D:\Work\myJump\BackEnd\Web.Api.Core\obj\Debug\netcoreapp2.1\Web.Api.Core.pdb

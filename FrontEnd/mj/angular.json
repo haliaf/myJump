@@ -159,6 +159,7 @@
   },
   "defaultProject": "mj",
   "cli": {
-    "defaultCollection": "@ngrx/schematics"
+    "defaultCollection": "@ngrx/schematics",
+    "analytics": "3b93a577-e15a-488a-85c6-f7d1707e7104"
   }
 }
