@@ -1,0 +1,76 @@
+@import "../../../../themes/generated/variables.base.scss";
+
+
+.login-header {
+  text-align: center;
+  margin-bottom: 35px;
+
+  .title {
+    color: $base-accent;
+    font-weight: bold;
+    font-size: 30px;
+    margin: 0;
+  }
+}
+:host {
+  width: 100%;
+  height: 100%;
+}
+
+.dx-card {
+  width: 330px;
+  margin: auto auto;
+  padding: 40px;
+  padding-top: 35px;
+
+
+  :host-context(.screen-x-small) & {
+    width: 100%;
+    height: 100%;
+    border-radius: 0;
+    box-shadow: none;
+    margin: 0;
+    border: 0;
+    flex-grow: 1;
+  }
+}
+.vk-dx-button{
+  background-color: #4c75a3;
+  margin-left: 0px!important;
+}
+.fb-dx-button{
+  background-color: #3b5999;
+}
+.g-dx-button{
+  background-color: #dd4b39;
+}
+.fa-google{
+  padding-left: 2px!important;
+}
+.checkBox-login{
+  display: block;
+  margin-bottom: 13px;
+}
+
+.fa-facebook-f{
+  padding-left: 4px!important;
+}
+.login-form-social-wrap{
+  margin-top: 14px;
+}
+.social-wrap-btn:hover{
+  cursor: pointer;
+}
+.social-wrap-btn{
+  height: 40px;
+  width: 40px;
+  margin-top: 7px;
+  margin-left: 5px;
+}
+.margin-top-10{
+  margin-top: 10px;
+}
+i{
+  color:red;
+  font-style: normal;
+}

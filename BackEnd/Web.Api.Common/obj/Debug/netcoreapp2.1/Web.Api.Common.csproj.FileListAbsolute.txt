@@ -20,3 +20,15 @@ D:\Work\myJump\BackEnd\Web.Api.Common\obj\Debug\netcoreapp2.1\Web.Api.Common.csp
 D:\Work\myJump\BackEnd\Web.Api.Common\obj\Debug\netcoreapp2.1\Web.Api.Common.dll
 D:\Work\myJump\BackEnd\Web.Api.Common\obj\Debug\netcoreapp2.1\Web.Api.Common.pdb
 D:\Work\myJump\BackEnd\Web.Api.Common\obj\Debug\netcoreapp2.1\Web.Api.Common.genruntimeconfig.cache
+E:\work\myJump\BackEnd\Web.Api.Common\bin\Debug\netcoreapp2.1\Web.Api.Common.deps.json
+E:\work\myJump\BackEnd\Web.Api.Common\bin\Debug\netcoreapp2.1\Web.Api.Common.runtimeconfig.json
+E:\work\myJump\BackEnd\Web.Api.Common\bin\Debug\netcoreapp2.1\Web.Api.Common.runtimeconfig.dev.json
+E:\work\myJump\BackEnd\Web.Api.Common\bin\Debug\netcoreapp2.1\Web.Api.Common.dll
+E:\work\myJump\BackEnd\Web.Api.Common\bin\Debug\netcoreapp2.1\Web.Api.Common.pdb
+E:\work\myJump\BackEnd\Web.Api.Common\obj\Debug\netcoreapp2.1\Web.Api.Common.csprojAssemblyReference.cache
+E:\work\myJump\BackEnd\Web.Api.Common\obj\Debug\netcoreapp2.1\Web.Api.Common.csproj.CoreCompileInputs.cache
+E:\work\myJump\BackEnd\Web.Api.Common\obj\Debug\netcoreapp2.1\Web.Api.Common.AssemblyInfoInputs.cache
+E:\work\myJump\BackEnd\Web.Api.Common\obj\Debug\netcoreapp2.1\Web.Api.Common.AssemblyInfo.cs
+E:\work\myJump\BackEnd\Web.Api.Common\obj\Debug\netcoreapp2.1\Web.Api.Common.dll
+E:\work\myJump\BackEnd\Web.Api.Common\obj\Debug\netcoreapp2.1\Web.Api.Common.pdb
+E:\work\myJump\BackEnd\Web.Api.Common\obj\Debug\netcoreapp2.1\Web.Api.Common.genruntimeconfig.cache

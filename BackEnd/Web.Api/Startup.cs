@@ -146,7 +146,12 @@ namespace Web.Api
             // Register the Swagger generator, defining 1 or more Swagger documents
             services.AddSwaggerGen(c =>
             {
-                c.SwaggerDoc("v1", new Info { Title = "AspNetCoreApiStarter", Version = "v1" });
+                c.SwaggerDoc("v1", new Info
+                {
+                    Version = "v1",
+                    Title = "MJ API",
+                    Description = "MJ ASP.NET Core Web API"
+                });
                 // Swagger 2.+ support
                 c.AddSecurityDefinition("Bearer", new ApiKeyScheme
                 {
@@ -198,15 +203,15 @@ namespace Web.Api
                         });
                 });
 
-            // Enable middleware to serve swagger-ui (HTML, JS, CSS, etc.),
-            // specifying the Swagger JSON endpoint.
+            // Enable middleware to serve generated Swagger as a JSON endpoint.
+            //endpoint for swagger http://localhost:5000/swagger/index.html
+            app.UseSwagger();
             app.UseSwaggerUI(c =>
             {
-                c.SwaggerEndpoint("http://localhost:8080/main/swagger/v1/swagger.json", "AspNetCoreApiStarter V1");
+                //Полный адрес при публикации
+                c.SwaggerEndpoint("http://localhost/api/swagger/v1/swagger.json", "MJ API V1");
+              //  c.SwaggerEndpoint("swagger/v1/swagger.json", "MJ API V1");
             });
-
-            // Enable middleware to serve generated Swagger as a JSON endpoint.
-            app.UseSwagger();
             app.UseAuthentication();
             app.UseMvc();
             app.UseSignalR(routest =>

@@ -1,0 +1,17 @@
+<ng-content></ng-content>
+<app-user-menu-info [isOpenMenu] = compactMode></app-user-menu-info>
+<div class="menu-container">
+
+    <dx-tree-view
+        expandEvent="click"
+        width="100%"
+        [items]="items"
+        (onInitialized)="onMenuInitialized($event)"
+        (onItemClick)="onItemClick($event)"
+        (onContentReady)="updateSelection($event)"
+        (onSelectionChanged)="updateSelection($event)"
+        [selectByClick]="true"
+        selectionMode="single"
+        keyExpr="path">
+    </dx-tree-view>
+</div>

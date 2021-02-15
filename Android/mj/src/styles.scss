@@ -1,0 +1,84 @@
+/* You can add global styles to this file, and also import other style files */
+body{
+  overflow-x: hidden;
+}
+
+.pointer{
+  cursor: pointer;
+}
+.padding5{
+  padding: 5px;
+}
+.fa-google-login-form{
+  padding-left: 2px!important;
+}
+.fa-facebook-f-login-form{
+  padding-left: 4px!important;
+}
+.iconFLoat{
+  float: left!important;
+  padding-top: 2px!important;
+}
+.fontsize10{
+  font-size: 10px;
+}
+.padding-bottom-0{
+  padding-bottom: 0px!important;
+}
+.custom-btn-height .dx-button-text{
+  line-height: 14px!important;
+}
+#icon-close{
+  border: 4px solid rgb(110, 0, 0);
+  border-radius: 50%;
+  text-align: center;
+  margin: auto;
+  width: 50px;
+  height: 50px;
+  transition: 0.3s;
+}
+
+#icon-close:hover {
+  border: 0px;
+  background-color:rgb(182, 8, 8);
+  cursor: pointer;
+}
+
+#icon-close:hover .close-rotate {
+  -webkit-animation-name: close-rotate;
+  animation-name: close-rotate;
+  -webkit-animation-duration: 2s;
+  animation-duration: 2s;
+  -webkit-animation-iteration-count: infinite;
+  animation-iteration-count: infinite;
+  -webkit-transform-origin: 50% 50%;
+  transform-origin: 50% 50%;
+  -webkit-animation-timing-function: ease-out;
+  animation-timing-function: ease-out;
+  display: block;
+  width: 50px;
+  height: 50px;
+}
+
+@keyframes close-rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  60% {
+    transform: rotate(30deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
+@-webkit-keyframes close-rotate{
+  0% {
+    transform: rotate(0deg);
+  }
+  60% {
+    transform: rotate(30deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}

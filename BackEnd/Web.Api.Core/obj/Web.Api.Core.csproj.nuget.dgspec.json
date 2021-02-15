@@ -1,33 +1,29 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Work\\myJump\\BackEnd\\Web.Api.Core\\Web.Api.Core.csproj": {}
+    "E:\\work\\myJump\\BackEnd\\Web.Api.Core\\Web.Api.Core.csproj": {}
   },
   "projects": {
-    "D:\\Work\\myJump\\BackEnd\\Web.Api.Common\\Web.Api.Common.csproj": {
+    "E:\\work\\myJump\\BackEnd\\Web.Api.Common\\Web.Api.Common.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Work\\myJump\\BackEnd\\Web.Api.Common\\Web.Api.Common.csproj",
+        "projectUniqueName": "E:\\work\\myJump\\BackEnd\\Web.Api.Common\\Web.Api.Common.csproj",
         "projectName": "Web.Api.Common",
-        "projectPath": "D:\\Work\\myJump\\BackEnd\\Web.Api.Common\\Web.Api.Common.csproj",
-        "packagesPath": "C:\\Users\\a.koltsov\\.nuget\\packages\\",
-        "outputPath": "D:\\Work\\myJump\\BackEnd\\Web.Api.Common\\obj\\",
+        "projectPath": "E:\\work\\myJump\\BackEnd\\Web.Api.Common\\Web.Api.Common.csproj",
+        "packagesPath": "C:\\Users\\haliaf\\.nuget\\packages\\",
+        "outputPath": "E:\\work\\myJump\\BackEnd\\Web.Api.Common\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "C:\\Microsoft\\Xamarin\\NuGet\\",
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
         ],
         "configFilePaths": [
-          "C:\\Users\\a.koltsov\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\DevExpress 19.1.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+          "C:\\Users\\haliaf\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "netcoreapp2.1"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\DevExpress 19.1\\Components\\System\\Components\\Packages": {},
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
@@ -66,42 +62,38 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.401\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.200\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "D:\\Work\\myJump\\BackEnd\\Web.Api.Core\\Web.Api.Core.csproj": {
+    "E:\\work\\myJump\\BackEnd\\Web.Api.Core\\Web.Api.Core.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Work\\myJump\\BackEnd\\Web.Api.Core\\Web.Api.Core.csproj",
+        "projectUniqueName": "E:\\work\\myJump\\BackEnd\\Web.Api.Core\\Web.Api.Core.csproj",
         "projectName": "Web.Api.Core",
-        "projectPath": "D:\\Work\\myJump\\BackEnd\\Web.Api.Core\\Web.Api.Core.csproj",
-        "packagesPath": "C:\\Users\\a.koltsov\\.nuget\\packages\\",
-        "outputPath": "D:\\Work\\myJump\\BackEnd\\Web.Api.Core\\obj\\",
+        "projectPath": "E:\\work\\myJump\\BackEnd\\Web.Api.Core\\Web.Api.Core.csproj",
+        "packagesPath": "C:\\Users\\haliaf\\.nuget\\packages\\",
+        "outputPath": "E:\\work\\myJump\\BackEnd\\Web.Api.Core\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "C:\\Microsoft\\Xamarin\\NuGet\\",
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
         ],
         "configFilePaths": [
-          "C:\\Users\\a.koltsov\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\DevExpress 19.1.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+          "C:\\Users\\haliaf\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "netcoreapp2.1"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\DevExpress 19.1\\Components\\System\\Components\\Packages": {},
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "netcoreapp2.1": {
             "projectReferences": {
-              "D:\\Work\\myJump\\BackEnd\\Web.Api.Common\\Web.Api.Common.csproj": {
-                "projectPath": "D:\\Work\\myJump\\BackEnd\\Web.Api.Common\\Web.Api.Common.csproj"
+              "E:\\work\\myJump\\BackEnd\\Web.Api.Common\\Web.Api.Common.csproj": {
+                "projectPath": "E:\\work\\myJump\\BackEnd\\Web.Api.Common\\Web.Api.Common.csproj"
               }
             }
           }
@@ -144,7 +136,7 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.401\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.200\\RuntimeIdentifierGraph.json"
         }
       }
     }
