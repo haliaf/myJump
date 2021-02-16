@@ -1,0 +1,17 @@
+<ng-container>
+    <h2 class="content-block">Замер1</h2>
+    <div class="center-section">
+        <dx-circular-gauge id="speed-gauge" [value]="speedValue">
+            <dxo-size [width]="260"></dxo-size>
+            <dxo-value-indicator type="twoColorNeedle" color="none" [secondFraction]="0.24" secondColor="#f05b41">
+            </dxo-value-indicator>
+            <dxo-geometry [startAngle]="225" [endAngle]="315">
+            </dxo-geometry>
+            <dxo-scale [startValue]="20" [endValue]="200" [tickInterval]="20" [minorTickInterval]="10">
+            </dxo-scale>
+        </dx-circular-gauge>
+        <div class="speed-value">
+            <span class="speed-value-span">{{speedValue}}</span>
+        </div>
+    </div>
+</ng-container>

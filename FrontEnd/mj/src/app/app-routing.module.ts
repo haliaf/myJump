@@ -2,7 +2,7 @@ import { RaceMapComponent } from './pages/home/race/race.map.component';
 import { CommonModule } from '@angular/common';
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { DxDataGridModule, DxFormModule, DxLoadIndicatorModule, DxScrollViewModule, DxButtonModule, DxFileUploaderModule, DxTabPanelModule } from 'devextreme-angular';
+import { DxDataGridModule, DxFormModule, DxLoadIndicatorModule, DxScrollViewModule, DxButtonModule, DxFileUploaderModule, DxTabPanelModule, DxCircularGaugeModule, DxLinearGaugeModule, DxSliderModule } from 'devextreme-angular';
 import { SingleCardComponent } from './layouts';
 import { DisplayDataComponent } from './pages/display-data/display-data.component';
 import { HomeComponent } from './pages/home/home.component';
@@ -17,6 +17,7 @@ import { LobbyMainMapComponent } from './pages/home/lobby-main-map/lobby.main.ma
 import { GoogleMapRaceComponent } from './shared/components/google-map-race/google-map-race.component';
 import { RaceLobbyComponent } from './pages/home/race/rave-lobby/race.lobby.component';
 import { FaceBookRegisterComponent } from './pages/register/register-fb/face-book-register/face-book-register.component';
+import { DragComponent } from './pages/drag/drag.component';
 
 
 const routes: Routes = [
@@ -33,6 +34,11 @@ const routes: Routes = [
     path: 'profile',
     component: ProfileComponent,
     canActivate: [AuthGuardService]
+  },
+  {
+    path: 'drag',
+    component: DragComponent,
+   // canActivate: [AuthGuardService]
   },
   {
     path: 'home',
@@ -57,9 +63,12 @@ const routes: Routes = [
   imports: [RouterModule.forRoot(routes), DxDataGridModule,
                                           DxFormModule,
                                           DxScrollViewModule,
+                                          DxCircularGaugeModule,
+                                          DxLinearGaugeModule,
                                           DxTabPanelModule,
                                           DxLoadIndicatorModule,
                                           DxButtonModule,
+                                          DxSliderModule,
                                           AppSpinnerModule,
                                           DxFileUploaderModule,
                                           CommonModule],
@@ -69,6 +78,7 @@ const routes: Routes = [
   declarations: [ HomeComponent,
                   ProfileComponent,
                   DisplayDataComponent,
+                  DragComponent,
                   MainMapComponent,
                   RaceMapComponent,
                   LobbyMainMapComponent,

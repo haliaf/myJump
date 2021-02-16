@@ -1,9 +1,6 @@
-import { catchError } from 'rxjs/operators';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { ActivatedRouteSnapshot, CanActivate, Router } from '@angular/router';
-import { Observable, BehaviorSubject } from 'rxjs';
-import { error } from 'protractor';
 import { environment } from 'src/environments/environment';
 
 type ICallback = (err: any) => void;
@@ -53,21 +50,21 @@ export class AuthService {
   }
 
   facebookLogin(accessToken: string) {
-  //  const headers = new Headers();
-   // headers.append('Content-Type', 'application/json');
+    //  const headers = new Headers();
+    // headers.append('Content-Type', 'application/json');
     const body = JSON.stringify({ accessToken });
     return this.http
       .post(
         this.uri + '/ExternalAuth/Facebook', { AccessToken: accessToken })
-        .subscribe( m =>
-          console.log(m));
-   //   .map(res => res.json())
-   //   .map(res => {
-   //     localStorage.setItem('auth_token', res.auth_token);
-   //     this.loggedIn = true;
-       /// this._authNavStatusSource.next(true);
+      .subscribe(m =>
+        console.log(m));
+    //   .map(res => res.json())
+    //   .map(res => {
+    //     localStorage.setItem('auth_token', res.auth_token);
+    //     this.loggedIn = true;
+    /// this._authNavStatusSource.next(true);
     //    return true;
-      //.catch(this.handleError);
+    //.catch(this.handleError);
   }
 
   public get currentUserTokenValue(): string {
